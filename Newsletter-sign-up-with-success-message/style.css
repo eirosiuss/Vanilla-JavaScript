@@ -140,3 +140,8 @@ textarea:not([rows]) {
 /* =============================================== */
 /* Components */
 
+form {
+    background: rgb(var(--clr-white));
+    width: 300px;
+    height: 300px;
+}
