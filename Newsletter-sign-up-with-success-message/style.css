@@ -1,0 +1,142 @@
+/* =============================================== */
+/* Custom properties */
+:root {
+    --font-base: 1rem;
+    /* --line-height: 1.5; */
+
+    --ff-Roboto: "Roboto", sans-serif;
+
+    --clr-white: 255, 255, 255;
+    --clr-grey: 148, 148, 148;
+    --clr-blue-800: 36, 39, 66;
+    --clr-blue-700: 54, 56, 77;
+    --clr-red: 255, 97, 85;
+
+    --txt-clr-slate-900: 19, 48, 65;
+
+    --fs-88: 5.5rem;
+    --fs-56: 3.5rem;
+    --fs-16: 1rem;
+    --fs-12: 0.75rem;
+}
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-size: var(--font-base);
+    /* line-height: var(--line-height); */
+    font-family: var(--ff-Roboto);
+    color: var(--txt-clr-slate-900);
+    background-color: rgb(var(--clr-blue-700))
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button {
+    border: none;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.text-present-1-bold {
+    font-size: var(--fs-56);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.0;
+    letter-spacing: 0px;
+}
+
+.text-present-1-mobile {
+    font-size: var(--fs-88);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.0;
+    letter-spacing: 0px;
+}
+
+.text-present-2-regular {
+    font-size: var(--fs-16);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0px;
+}
+
+.text-present-3-bold {
+    font-size: var(--fs-12);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0px;
+}
+
+/* =============================================== */
+/* Components */
+
