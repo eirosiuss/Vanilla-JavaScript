@@ -85,5 +85,86 @@ console.log('Float input================================')
 // console.log(typeof(height));
 
 console.log('Error When Using paresInt() and parseFloat()================================')
-let nameThree = parseInt(prompt('Enter your name: '))
-console.log(nameThree);
+// let nameThree = parseInt(prompt('Enter your name: '))
+// console.log(nameThree);
+
+console.log('Comments================================')
+// program to print the comment
+let comment = 'comment'
+console.log('Comment: ' + comment);
+
+console.log('Prevent Executing Code Using Comments================================')
+// let comment = 'comment'
+// console.log('Comment: ' + comment);
+
+console.log('+ Addition Operator================================')
+const x = 8.5;
+const y = 4;
+const result = x + y;
+console.log(result);
+console.log(x+y);
+
+const text1 = 'JavaScript'
+const text2 = 'Programming'
+console.log(text1, text2);
+console.log('JavaScript', 'Programming');
+
+console.log('- Subtraction Operator================================')
+const xS = 8;
+const yS = 4;
+const resultS = xS - yS;
+console.log(resultS);
+
+console.log('* Multiplication Operator================================')
+const xM = 8;
+const yM = 4;
+const resultM = xM * yM;
+console.log(resultM);
+
+console.log('/ Division Operator================================')
+const xD = 8;
+const yD = 4;
+const resultD = xD / yD;
+console.log(resultD);
+
+console.log('% Remainder Operator================================')
+const xR = 8;
+const yR = 7;
+const resultR = xR % yR;
+console.log(resultR);
+
+console.log('++ Increment Operator================================')
+let xI = 8;
+console.log(++xI);
+console.log(xI);
+console.log(xI++);
+console.log(xI);
+
+console.log('-- Decrement Operator================================')
+let xDe = 8;
+console.log(--xDe);
+console.log(xDe);
+console.log(xDe--);
+console.log(xDe);
+
+console.log('** Exponentiation Operator================================')
+let xE = 8;
+const resultE = xE ** 2;
+console.log(resultE);
+
+console.log('Multiple Operator================================')
+const resultMu = (4/2) + (3*5) - 1;
+console.log(resultMu);
+
+console.log('Practical Examples================================')
+let tuition = 4535;
+let discount = 10;
+let payment = tuition - ((tuition * discount) / 100) ;
+console.log(payment);
+
+let kilometers = 5;
+console.log((kilometers * 0.621371192).toFixed(2));
+
+let celcius = 0 
+let fahrenheit = celcius * 1.8 + 32
+console.log(fahrenheit);
