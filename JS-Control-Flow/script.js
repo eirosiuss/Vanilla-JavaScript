@@ -82,3 +82,75 @@ console.log(!result3);
 
 result3 = height > 6;
 console.log(!result3);
+
+console.log('Type conversions================================');
+let x1 = '8';
+let y1 = 4;
+let result4 = x1 + y1
+console.log(result4);
+console.log(typeof(result4));
+
+x1 = 'hello';
+result4 = x1 + y1
+console.log(result4);
+
+let result5 = '5' - '2';
+let result6 = '5' - 2;
+let result7 = '5' * 2;
+let result8 = '5' / 2;
+console.log(result5);
+console.log(typeof(result5));
+
+console.log(result6);
+console.log(typeof(result6));
+
+console.log(result7);
+console.log(typeof(result7));
+
+console.log(result8);
+console.log(typeof(result8));
+
+console.log('---------------------------');
+let result9 = '4' - 'hello';
+console.log(result9);
+
+console.log('---------------------------');
+let result10 = '4' - true;
+console.log('true is 1');
+console.log('"4" - true');
+console.log(result10);
+
+console.log('---------------------------');
+let result11 = '4' + true;
+console.log(result11);
+
+console.log('---------------------------');
+let result12 = 4 + false;
+console.log('false is 0');
+console.log('4 + false');
+console.log(result12);
+
+console.log('Explicit numeric conversions================================');
+let result13 = Number('324');
+console.log(result13);
+console.log(typeof(result13));
+
+console.log('---------------------------');
+let result14 = Number(true);
+console.log(result14);
+console.log(typeof(result14));
+console.log('---------------------------');
+let result15 = Number(false);
+console.log(result15);
+console.log(typeof(result15));
+
+console.log('Convert to String Explicitly================================');
+let result16 = String(257);
+console.log(result16);
+console.log(typeof(result16));
+
+console.log('---------------------------');
+let result17 = (257).toString();
+console.log(result17);
+console.log(typeof(result17));
+
