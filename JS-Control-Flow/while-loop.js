@@ -79,3 +79,26 @@ while (counterFS <= numberFS) {
 counterFS++
 }
 
+console.log('even--------------------------');
+
+let countE = 2;
+while (countE <= 10) {
+    console.log(countE);
+    countE += 2;
+}
+
+console.log('reverse--------------------------');
+let countR = 10;
+while (countR >= 1) {
+    console.log(countR);
+    countR -=1
+}
+
+console.log('multiply--------------------------');
+let countM = 1;
+let multiply = 1
+while (multiply < 1000) {
+    multiply = multiply * 2
+    console.log(multiply);
+    countM +=1
+}
