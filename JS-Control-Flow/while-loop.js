@@ -71,8 +71,11 @@ let counterFS = 1;
 let numberFS = 7;
 let zero = 0;
 let one = 1;
-
 while (counterFS <= numberFS) {
-    
-    counterFS++
+    console.log(zero);
+    let next = zero + one
+    zero = one
+    one = next
+counterFS++
 }
+
