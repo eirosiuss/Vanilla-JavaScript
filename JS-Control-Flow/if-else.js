@@ -238,11 +238,11 @@ let noFour = 5;
 
 if (noFour % 5 === 0) {
     console.log(
-    '1 x ' + noFour + ' =', 1 * noFour, '\n' +
-    '2 x ' + noFour + ' =', 2 * noFour, '\n' +
-    '4 x ' + noFour + ' =', 3 * noFour, '\n' +
-    '5 x ' + noFour + ' =', 5 * noFour, '\n'
-)
+        '1 x ' + noFour + ' =', 1 * noFour, '\n' +
+        '2 x ' + noFour + ' =', 2 * noFour, '\n' +
+        '4 x ' + noFour + ' =', 3 * noFour, '\n' +
+        '5 x ' + noFour + ' =', 5 * noFour, '\n'
+    )
 }
 
 if (noFour % 2 === 0) {
@@ -251,5 +251,58 @@ if (noFour % 2 === 0) {
 
 if (noFour % 7 !== 0) {
     let noFive = 2;
-    console.log(noFour + noFive, noFour - noFive, noFour * noFive, noFour / noFive); 
+    console.log(noFour + noFive, noFour - noFive, noFour * noFive, noFour / noFive);
+}
+
+console.log('5================================');
+// Susikurkite kintamąjį pasirinkimui saugoti, į jį įrašykite norimą reikšmę. Tikrinkite:
+// Ar pasirinkimas lygus 1? Jei taip, išveskite, kad vartotojas laimėjo vandens.
+// Ar pasirinkimas lygus 2? Jei taip, išveskite, kad vartotojas laimėjo limonadą.
+// Ar pasirinkimas lygus 3? Jei taip, išveskite, kad vartotojas laimėjo arbatą.
+// Ar pasirinkimas lygus 4? Jei taip, išveskite, kad vartotojas laimėjo kavą.
+// Jei pasirinkimas neegzistuoja, išveskite klaidos pranešimą.
+
+let option = 1;
+
+switch (option) {
+    case 1:
+        console.log('vanduo');
+        break;
+    case 2:
+        console.log('limonadas');
+        break;
+    case 3:
+        console.log('arbata');
+        break;
+    case 4:
+        console.log('kava');
+        break;
+    default:
+        console.log('klaida');
+        break;
+}
+
+// Susikurkite kintamuosius trims skaičiams saugoti ir priskirkite jiems reiškmes. Tikrinkite pirmą skaičių:
+// Ar pirmas skaičius lygus 1? Jei taip, išvesti visų trijų skaičių sumą.
+// Ar pirmas skaičius lygus 2? Jei taip, išvesti antro ir trečio skaičių sandaugą.
+// Ar pirmas skaičius lygus 3? Jei taip, išvesti pirmo skaičiaus kvadratą.
+// Jei nei vienas variantas netinka, išveskite klaidos pranešimą.
+
+mark1 = 2;
+mark2 = 4;
+mark3 = 4;
+
+switch (mark1) {
+    case 1:
+        console.log(mark1 + mark2 + mark3);
+        break;
+    case 2:
+        console.log(mark2 * mark3);
+        break;
+    case 3:
+        console.log(mark1 * mark1);
+        break;
+    default:
+        console.log('klaida');
+        break;
 }
