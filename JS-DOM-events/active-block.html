@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active-block</title>
+    <script defer src="active-block.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            gap: 1rem;
+        }
+
+        div {
+            background: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+        }
+
+        div:hover,
+        div:focus-visible {
+            background: lightblue;
+            transition: 0.2s ease-in-out;
+        }
+
+        .active {
+            background: blue;
+        }
+
+        div:not(.active) p {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="active">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, consequuntur.
+        </p>
+    </div>
+    <div>
+        <p>
+            Magnam unde inventore asperiores itaque earum culpa amet, eius et.
+        </p>
+    </div>
+    <div>
+        <p>
+            Sequi eaque reprehenderit ab, aperiam labore nam cupiditate aliquam explicabo?
+        </p>
+    </div>
+</body>
+
+</html>
