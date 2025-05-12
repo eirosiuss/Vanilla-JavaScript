@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text formatting</title>
+    <script defer src="text-formatting.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 1rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .top {
+            gap: 1rem;
+        }
+
+        .top div {
+            border: 1px solid black;
+            padding: 0.25rem;
+            align-items: center;
+            align-content: center
+        }
+
+        button {
+            border: none;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: 0.25rem;
+            padding: 0.5rem;
+        }
+
+        button:hover,
+        button:focus-visible {
+            background-color: rgba(173, 216, 230, 0.5);
+            transition: 0.5s;
+        }
+
+        .active {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top flex">
+        <div>
+            <label for="font">Font size:</label>
+            <input id="font-size" type="number" name="font">
+        </div>
+        <div class="flex">
+            <p>Font style:</p>
+            <button id="btn-normal" class="active">Normal</button>
+            <button id="btn-bold">Bold</button>
+            <button id="btn-italic">Italic</button>
+        </div>
+    </div>
+
+    <p id="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati, recusandae error mollitia debitis corrupti
+        deleniti enim reiciendis ex itaque eos exercitationem, natus similique. Dignissimos maiores beatae hic commodi
+        reprehenderit repellat.</p>
+
+</body>
+
+</html>
