@@ -1,52 +1,35 @@
 let fontSize = document.querySelector('#font-size')
-console.log(fontSize);
 fontSize.valueAsNumber = 16
 
-let btnNormal = document.querySelector('#btn-normal')
-// console.log(btnNormal);
-
-let btnBold = document.querySelector('#btn-bold')
-// console.log(btnBold);
-
-let btnItalic = document.querySelector('#btn-italic')
-// console.log(btnItalic);
-
 let paragraph = document.querySelector('#paragraph')
-console.log(paragraph);
 
 fontSize.addEventListener('input', () => {
-    console.log(fontSize.valueAsNumber);
-    console.log(paragraph.style.fontSize);
+    // panaikina raides ir simbolius
+    fontSize.value = fontSize.value.replace(/[^0-9]/g, '');
 
-
-    if (fontSize.valueAsNumber < 0 ) {
-        alert('Only positive numbers')
-        fontSize.valueAsNumber = 16
-
-    } else if (fontSize.valueAsNumber > 0) {
+    if (fontSize.valueAsNumber >= 1) {
         paragraph.style.fontSize = fontSize.valueAsNumber + 'px'
+    } else if (fontSize.valueAsNumber === 0) {
+        fontSize.valueAsNumber = 1
     }
 })
 
-let button = document.querySelectorAll('button')
-// console.log(button);
+let buttons = document.querySelectorAll('button')
 
-button.forEach(btn => {
-// console.log(btn);
-btn.addEventListener('click', () => {
-    document.querySelector('.active').classList.remove('active')
-    
-    if (btnBold) {
-        console.log(btnNormal);
-        
-        paragraph.style.fontStyle = 'normal'
-        paragraph.style.fontWeight = ''
-        btn.classList.add('active')
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'))
 
-    } else if (btnNormal) {
-        paragraph.style.fontStyle = ''
-        paragraph.style.fontWeight = '700'
-        btn.classList.add('active')
-    }
-})
+        button.classList.add('active')
+        if (button.id === 'btn-normal') {
+            paragraph.style.fontWeight = '400'
+            paragraph.style.fontStyle = 'normal'
+        } else if (button.id === 'btn-bold') {
+            paragraph.style.fontWeight = '700'
+            paragraph.style.fontStyle = 'normal'
+        } else {
+            paragraph.style.fontWeight = '400'
+            paragraph.style.fontStyle = 'italic'
+        }
+    })
 })
