@@ -19,12 +19,34 @@ fontSize.addEventListener('input', () => {
     console.log(paragraph.style.fontSize);
 
 
-    if (fontSize.valueAsNumber < 0) {
-        alert('asd')
+    if (fontSize.valueAsNumber < 0 ) {
+        alert('Only positive numbers')
         fontSize.valueAsNumber = 16
 
     } else if (fontSize.valueAsNumber > 0) {
         paragraph.style.fontSize = fontSize.valueAsNumber + 'px'
     }
+})
 
+let button = document.querySelectorAll('button')
+// console.log(button);
+
+button.forEach(btn => {
+// console.log(btn);
+btn.addEventListener('click', () => {
+    document.querySelector('.active').classList.remove('active')
+    
+    if (btnBold) {
+        console.log(btnNormal);
+        
+        paragraph.style.fontStyle = 'normal'
+        paragraph.style.fontWeight = ''
+        btn.classList.add('active')
+
+    } else if (btnNormal) {
+        paragraph.style.fontStyle = ''
+        paragraph.style.fontWeight = '700'
+        btn.classList.add('active')
+    }
+})
 })
