@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery shop</title>
+    <script defer src="bakery-shop.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .block-wrapper {
+            background-color: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px 35px;
+            margin: 30px auto;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-wrapper .input-wrapper {
+            margin: 10px 0;
+        }
+
+        .info-wrapper .input-wrapper>* {
+            display: block;
+        }
+
+        .info-wrapper .input-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+            padding: 5px;
+            border-style: solid ;
+            border-width: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="block-wrapper">
+        <h1>Bakery shop</h1>
+    </header>
+
+    <div class="info-wrapper block-wrapper">
+        <div class="input-wrapper">
+            <label for="employees-count">Number of employees:</label>
+            <input id="employees-count" type="number" min="0" step="1" value="0">
+        </div>
+        <div class="input-wrapper">
+            <label for="employee-makes">One employee makes per day:</label>
+            <input id="employee-makes" type="number" min="0" step="1" value="0">
+        </div>
+        <div class="input-wrapper">
+            <label for="orders">Number of orders per day:</label>
+            <input id="orders" type="number" min="0" step="1" value="0">
+        </div>
+    </div>
+
+    <div class="info-wrapper block-wrapper">
+        <h2>Initial information</h2>
+    </div>
+
+    <div class="calculation-wrapper block-wrapper">
+        <h2>Calculations</h2>
+        <div class="results">
+            <p>Nothing</p>
+        </div>
+    </div>
+</body>
+
+</html>
