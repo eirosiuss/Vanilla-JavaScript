@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text analysis</title>
+    <script defer src="text-analysis.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        textarea {
+            width: 200px;
+            height: 50px;
+        }
+
+        p {
+            display: none;
+            font-weight: bold;
+        }
+
+        span {
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <label for="analyze-text">Enter the text:</label>
+    <textarea type="text" id="analyze-text"></textarea>
+    <button id="analyze-button">Analyze</button>
+    <p id="words">Number of words: <span></span> </p>
+    <p id="characters">Number of characters: <span></span></p>
+</body>
+</html>
