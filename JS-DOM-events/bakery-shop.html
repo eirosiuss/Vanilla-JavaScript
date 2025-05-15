@@ -37,8 +37,13 @@
             box-sizing: border-box;
             margin-top: 5px;
             padding: 5px;
-            border-style: solid ;
+            border-style: solid;
             border-width: 1px;
+        }
+
+        .info-wrapper button {
+            padding: 5px 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -54,13 +59,14 @@
             <input id="employees-count" type="number" min="0" step="1" value="0">
         </div>
         <div class="input-wrapper">
-            <label for="employee-makes">One employee makes per day:</label>
+            <label for="employee-makes">One employee bakes per day:</label>
             <input id="employee-makes" type="number" min="0" step="1" value="0">
         </div>
         <div class="input-wrapper">
             <label for="orders">Number of orders per day:</label>
             <input id="orders" type="number" min="0" step="1" value="0">
         </div>
+        <button id="calculate">Calculate</button>
     </div>
 
     <div class="info-wrapper block-wrapper">
@@ -69,8 +75,10 @@
 
     <div class="calculation-wrapper block-wrapper">
         <h2>Calculations</h2>
-        <div class="results">
-            <p>Nothing</p>
+        <div id="results">
+            <p>
+                Nothing
+            </p>
         </div>
     </div>
 </body>
