@@ -45,40 +45,53 @@
             padding: 5px 10px;
             cursor: pointer;
         }
+
+        .info-wrapper .input-wrapper input.error {
+            border-color: red;
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .info-wrapper .input-wrapper span.error {
+            color: red;
+        }
+
+        .info-wrapper .input-wrapper span.error:not(.show) {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <header class="block-wrapper">
-        <h1>Bakery shop</h1>
+        <h1>Bakery</h1>
     </header>
 
     <div class="info-wrapper block-wrapper">
+        <h2>Initial information</h2>
+
         <div class="input-wrapper">
             <label for="employees-count">Number of employees:</label>
             <input id="employees-count" type="number" min="0" step="1" value="0">
+            <span class="error">The number of employees cannot be negative.</span>
         </div>
         <div class="input-wrapper">
             <label for="employee-makes">One employee bakes per day:</label>
             <input id="employee-makes" type="number" min="0" step="1" value="0">
+            <span class="error">The number of bakes cannot be negative.</span>
         </div>
         <div class="input-wrapper">
             <label for="orders">Number of orders per day:</label>
             <input id="orders" type="number" min="0" step="1" value="0">
+            <span class="error">The number of orders cannot be negative.</span>
         </div>
         <button id="calculate">Calculate</button>
-    </div>
-
-    <div class="info-wrapper block-wrapper">
-        <h2>Initial information</h2>
+        <button id="reset">Reset</button>
     </div>
 
     <div class="calculation-wrapper block-wrapper">
         <h2>Calculations</h2>
         <div id="results">
-            <p>
-                Nothing
-            </p>
+            <p>Nothing at the moment.</p>
         </div>
     </div>
 </body>
