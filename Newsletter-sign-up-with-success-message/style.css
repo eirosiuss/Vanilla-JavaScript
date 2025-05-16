@@ -20,6 +20,16 @@
     --fs-12: 0.75rem;
 }
 
+/*
+@media (width < 36em) {
+    :root {}
+}
+
+@media (36em <=width <=48em) {
+    :root {}
+}
+    */
+
 /* =============================================== */
 /* Reset */
 *,
@@ -139,13 +149,83 @@ textarea:not([rows]) {
 
 /* =============================================== */
 /* Components */
-
-/* form {
+main {
+    margin: 219px auto;
+    max-width: 904px;
+    width: 100%;
+    padding: 24px 32px;
+    border-radius: 36px;
     background: rgb(var(--clr-white));
-    width: 300px;
-    height: 300px;
-} */
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 40px;
+}
+
+main>* {
+    flex: 1;
+}
+
+@media (36em <=width <=48em) {
+    main {
+        margin: 219px auto;
+        max-width: 608px;
+        width: 100%;
+        padding: 24px 32px;
+        border-radius: 36px;
+        background: rgb(var(--clr-white));
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    main>* {
+    flex: auto;
+}
+
+    div img {
+        width: 100%;
+        max-height: 528px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+}
+
+h1 {
+    margin: 71.5px 0 32px;
+}
+
+ul {
+    margin: 32px 0;
+}
+
+ul li {
+    display: flex;
+}
+
+ul li:not(:last-of-type) {
+    margin-bottom: 8px;
+}
+
+ul svg {
+    margin: auto 0;
+    margin-right: 16px;
+}
 
 input {
-        color: rgb(var(--clr-grey));
+    color: rgb(var(--clr-grey));
+    margin: 8px 0 24px;
+    display: block;
+    padding: 16px 0 16px 24px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgb(var(--clr-grey));
+}
+
+button {
+    color: rgb(var(--clr-white));
+    width: 100%;
+    background: rgb(var(--clr-blue-800));
+    padding: 16px 0;
+    border-radius: 8px;
 }
