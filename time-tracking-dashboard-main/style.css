@@ -1,0 +1,184 @@
+/* =============================================== */
+/* Custom properties */
+:root {
+    --font-base: 1rem;
+
+    --ff-Rubik: "Rubik", sans-serif;
+
+    --clr-white: 255, 255, 255;
+    --clr-black: 0, 0, 0;
+    --clr-navy-950: 14, 19, 35;
+    --clr-navy-900: 28, 32, 75;
+    --clr-navy-800: 51, 57, 122;
+    --clr-navy-200: 187, 192, 255;
+    --clr-orange: 255, 139, 100;
+    --clr-purple-700: 115, 53, 210;
+    --clr-purple-600: 81, 71, 234;
+    --clr-purple-500: 112, 120, 201;
+    --clr-blue: 85, 194, 230;
+    --clr-pink: 255, 94, 125;
+    --clr-green: 75, 207, 130;
+    --clr-yellow: 241, 199, 91;
+    --clr-grey: 216, 216, 216;
+
+
+--fs-56: 3.5rem;
+--fs-40: 2.5rem;
+--fs-32: 2rem;
+--fs-24: 1.5rem;
+--fs-18: 1.125rem;
+--fs-15: 0.9375rem;
+}
+
+
+/* @media (36em <=width <=48em) {
+    :root {}
+}
+
+@media (width < 36em) {
+    :root {}
+} */
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-size: var(--font-base);
+    /* line-height: var(--line-height); */
+    font-family: var(--ff-Rubik);
+    color: rgb(var(--clr-white));
+    background-color: rgb(var(--clr-navy-950))
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button {
+    border: none;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.text-present-1 {
+    font-size: var(--fs-56);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 66px;
+    letter-spacing: 0px;
+}
+
+.text-present-2 {
+    font-size: var(--fs-40);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 47px;
+    letter-spacing: 0px;
+}
+
+.text-present-3 {
+    font-size: var(--fs-32);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 38px;
+    letter-spacing: 0px;
+}
+
+.text-present-4 {
+    font-size: var(--fs-24);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 28px;
+    letter-spacing: 0px;
+}
+
+.text-present-5-medium {
+    font-size: var(--fs-18);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 21px;
+    letter-spacing: 0px;
+}
+
+.text-present-5-regular {
+    font-size: var(--fs-18);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 21px;
+    letter-spacing: 0px;
+}
+
+.text-present-6 {
+    font-size: var(--fs-15);
+    font-weight: 400;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: 0px;
+}
+
+/* =============================================== */
+/* Components */
