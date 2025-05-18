@@ -159,7 +159,7 @@ main {
     margin: 219px auto;
     max-width: 904px;
     width: 100%;
-    padding: 16px 32px 32px 32px;
+    padding: 32px;
     border-radius: 36px;
     background: rgb(var(--clr-white));
     display: flex;
