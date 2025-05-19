@@ -49,7 +49,7 @@ let n = 10;
 let counter = 1;
 let sum = 0;
 while (counter <= n) {
-    sum+=counter
+    sum += counter
     // console.log(sum);
     counter += 1
 }
@@ -60,10 +60,10 @@ let numberF = 5;
 let counterF = numberF;
 let factorial = 1;
 while (counterF >= 1) {
-    factorial*=counterF
+    factorial *= counterF
     console.log(factorial);
-    counterF--    
-} 
+    counterF--
+}
 console.log(factorial);
 
 console.log('fibonacci sequence--------------------------');
@@ -76,7 +76,7 @@ while (counterFS <= numberFS) {
     let next = zero + one
     zero = one
     one = next
-counterFS++
+    counterFS++
 }
 
 console.log('even--------------------------');
@@ -91,7 +91,7 @@ console.log('reverse--------------------------');
 let countR = 10;
 while (countR >= 1) {
     console.log(countR);
-    countR -=1
+    countR -= 1
 }
 
 console.log('multiply--------------------------');
@@ -100,5 +100,68 @@ let multiply = 1
 while (multiply < 1000) {
     multiply = multiply * 2
     console.log(multiply);
-    countM +=1
+    countM += 1
+}
+
+console.log('--------------------------');
+// Išveskite visus skaičius nuo 1 iki 20.
+let i = 1
+while (i <= 20) {
+    console.log(i)
+    i++
+}
+
+console.log('--------------------------');
+// Išveskite visus skaičius nuo 1 iki 50. Prie kiekvieno lyginio skaičiaus parašykite žodį „lyginis“, o prie kiekvieno nelyginio – „nelyginis“.
+i = 1
+while (i <= 50) {
+    console.log(i, i % 2 == 0 ? 'lyginis' : 'nelyginis');
+    i++
+}
+
+console.log('--------------------------');
+// Išveskite visus skaičius nuo 25 iki 50. Vietoj skaičių, kurie dalinasi iš 3 išveskite tekstą „skaičius {skaičius} dalinasi iš 3“.
+i = 25
+while (i <= 50) {
+    console.log(i % 3 == 0 ? `skaičius ${i} dalinasi iš 3` : i);
+    i++
+}
+
+console.log('--------------------------');
+// Išvedinėkite visus skaičius nuo 1 iki tol kol pasitaikys skaičius, kuris dalinasi iš 3 ir iš 5.
+while (true) {
+    i = Math.floor(Math.random() * 100) + 1
+
+    if (i % 3 == 0 && i % 5 == 0) {
+        console.log(i);
+        break
+    }
+}
+
+console.log('--------------------------');
+// Iš skaičių nuo 1 iki 100, raskite visų lyginių skaičių sumą.
+i = 1
+sum = 0
+while (i <= 100) {
+    if (i % 2 == 0) {
+        sum += i
+    }
+    i++
+}
+console.log(sum);
+
+console.log('--------------------------');
+// Žemiau parodytą pavyzdį pakeiskite taip, kad toje pačioje eilutėje išvestų ne tik skaičių, bet ir jo kvadratą:
+// let skaicius = 1;
+
+// while (skaicius < 5) {
+// 	console.log(skaicius);
+// 	skaicius++;
+// }
+
+let skaicius = 1;
+
+while (skaicius < 5) {
+    console.log(skaicius, skaicius ** 2);
+    skaicius++;
 }
