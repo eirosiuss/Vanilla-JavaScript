@@ -165,3 +165,43 @@ while (skaicius < 5) {
     console.log(skaicius, skaicius ** 2);
     skaicius++;
 }
+
+console.log('--------------------------');
+// (sudėtingesnė) Išvedinėkite visus skaičius nuo 1 iki kol rasite tokį, kuris yra pirminis.
+i = Math.floor(Math.random() * 1000) + 1
+while (true) {
+
+    let pirminis = true
+
+    if (i < 2) {
+        pirminis = false
+    } else {
+        let daliklis = 2
+        while (daliklis < i) {
+            if (i % daliklis == 0) {
+                pirminis = false
+                break
+            }
+            daliklis++
+        }
+    }
+    if (pirminis == false) {
+        console.log(i, 'ne pirminis');
+    } else {
+        console.log(i, 'pirminis');
+        break
+    }
+    i++
+}
+
+console.log('--------------------------');
+// Parašykite programą, kuri paverstų eurus į dolerius.
+let eur = 100
+let usd = 1.125
+
+while (true) {
+    let result = eur * usd
+    result = result.toFixed(2)
+    console.log(eur + ' eur =', result + ' $');
+    break
+}
