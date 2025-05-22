@@ -174,7 +174,7 @@ for (let i = 0; i < studyPrograms.length; i++) {
 
 console.log('---------------------');
 // Susikurkite masyvą šalių pavadinimams saugoti ir jį užpildykite duomenimis. Išveskite šalių pavadinimus atskirose eilutėse, su prierašu "šalis" ir tada nurodant šalį iš masyvo.
-const countries = [
+let countries = [
     "Lithuania",
     "France",
     "Germany",
@@ -408,7 +408,7 @@ for (const grade of grades) {
 
     if (grade >= 4) {
         console.log('positive: ', grade);
-        
+
     }
 }
 console.log('avg: ', (sum / 6).toFixed(2));
@@ -419,7 +419,7 @@ console.log('---------------------');
 let sum1 = 0
 student1Grades = [8, 5, 6, 10, 7, 9];
 for (const grade of student1Grades) {
-    sum1+=grade
+    sum1 += grade
     console.log(grade);
 }
 console.log(sum1 / student1Grades.length);
@@ -427,7 +427,7 @@ console.log(sum1 / student1Grades.length);
 let sum2 = 0
 student2Grades = [4, 3, 6, 5, 2, 7];
 for (const grade of student2Grades) {
-    sum2+=grade
+    sum2 += grade
     console.log(grade);
 }
 console.log(sum2 / student2Grades.length);
@@ -444,7 +444,388 @@ for (const word of words) {
     if (word.length < 5) {
         shortWords.push(word)
     }
-    
+
 }
 console.log(words);
 console.log(shortWords);
+
+
+console.log('---------------------');
+// Susikurkite masyvą, kuriame būtų pateikti mėgstamiausi valgiai. Pamėginkite masyvą papildyti informacija įvairiais būdais (pridėti naują valgį priekyje, gale, per vidurį, pasirinktoje vietoje). Pamėginkite ištrinti kažkuriuos 3 valgius (iš pasirinktų pozicijų, pvz, galo ir vidurio).
+let favoriteFoods = ["Pizza", "Sushi", "Dumplings", "Spaghetti", "Cold beet soup"];
+console.log("Initial list:", favoriteFoods);
+
+// Add a new food to the beginning
+favoriteFoods.unshift('Salads');
+console.log("After unshift (added 'Salads' to the beginning):", favoriteFoods);
+
+// Add a new food to the end
+favoriteFoods.push('Steak');
+console.log("After push (added 'Steak' to the end):", favoriteFoods);
+
+// Add a food to the middle (at index 2, before 'Dumplings')
+favoriteFoods.splice(2, 0, 'Cake');
+console.log("After splice (inserted 'Cake' at index 2):", favoriteFoods);
+
+// Remove the first element
+favoriteFoods.shift();
+console.log("After shift (removed the first element):", favoriteFoods);
+
+// Remove the last element
+favoriteFoods.pop();
+console.log("After pop (removed the last element):", favoriteFoods);
+
+// Remove an element from the middle (at index 3, 'Dumplings')
+favoriteFoods.splice(3, 1);
+console.log("After splice (removed element at index 3):", favoriteFoods);
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Naudojant includes, patikrinkite ar masyve yra kuris nors pasirinktas skaičius (pvz 8).
+numbers = [5, 12, 8, 20, 3, 15];
+console.log("Number array:", numbers);
+
+// Check if number 8 is in the array
+console.log("Does the array include 8?", numbers.includes(8)); // true
+
+// Check if number 11 is in the array
+console.log("Does the array include 11?", numbers.includes(11)); // false
+
+
+console.log('---------------------');
+// Susikurkite masyvą, kuriame būtų surašyti bet kokie žodžiai. Panaudokite join metodą, kad masyvą paverstumėte į teksto eilutę. Paeksperimentuokite su skirtingais skirtukais jungiant tekstą (pvz vieną kartą panaudokite tarpą, kitą kablelius ir t.t.).
+words = ["sun", "tree", "book", "computer", "coffee"];
+console.log("Original array:", words);
+
+// Join the words with a space
+console.log("Joined with space:", words.join(' ')); // sun tree book computer coffee
+
+// Join the words with default separator (comma)
+console.log("Joined with default (comma):", words.join()); // sun,tree,book,computer,coffee
+
+// Join the words with comma and space
+console.log("Joined with comma and space:", words.join(', ')); // sun, tree, book, computer, coffee
+
+
+console.log('---------------------');
+// Susikurkite kintamąjį kuriame būtų saugomas sakinys iš kelių žodžių (string tipo kintamasis). Išskaidykite šį tekstą į masyvą naudojant split metodą. Raskite kiek žodžių buvo sakinyje.
+// Create a string variable holding a sentence
+let sentence = "The sun is shining brightly today.";
+console.log("Original sentence:", sentence);
+
+// Split the sentence into an array of words using space as separator
+console.log("Array of words:", sentence.split(' '));
+
+// Count how many words are in the sentence
+console.log("Number of words:", sentence.split(' ').length);
+
+
+console.log('---------------------');
+// Susikurkite pažymių masyvą. Surikiuokite pažymius nuo didžiausio iki mažiausio. Išveskite tris didžiausius pažymius.
+grades = [9, 7, 10, 6, 8]
+console.log("Original grades:", grades);
+
+// Sort from highest to lowest
+console.log("Sorted grades:", grades.sort((a, b) => b - a));
+
+// Show top 3 grades
+console.log("Top 3 grades:", grades.sort((a, b) => b - a).slice(0, 3));
+
+
+console.log('---------------------');
+// Susikurkite du masyvus, pirmąjame būtų saugomi biologijos pamokos studentų vardai, o antrąjame būtų saugojami matematikos pamokos studentų vardai. Apjunkite šiuos masyvų informaciją į vieną masyvą. Bonus: ar jums pavyktų išskirti tik unikalius vardus? (galima ieškoti kaip panaudoti set).
+let biologyStudents = ["Jonas", "Aiste", "Tomas", "Greta"];
+console.log("Biology students:", biologyStudents);
+
+let mathStudents = ["Lukas", "Aiste", "Greta", "Mantas"];
+console.log("Math students:", mathStudents);
+
+// Combine both arrays into one
+let students = biologyStudents.concat(mathStudents);
+console.log("Combined students:", students);
+
+// Remove duplicate names using Set and spread operator
+students = [...new Set(students)];
+console.log("Unique students:", students);
+
+
+console.log('---------------------');
+// Susikurkite du masyvus. Pirmame masyve bus išvardinta pirmo semestro paskaitų temos, o antrame masyve - antro semestro paskaitų temos. Sujunkite šiuos masyvus naudojant spread operator, taip, kad pirmiausia būtų pateikta pirmo semestro informacija ir tada antro.
+// First semester lecture topics
+let firstSemesterTopics = ["Introduction to Biology", "Cell Structure", "Genetics", "Ecology"];
+console.log("First semester topics:", firstSemesterTopics);
+
+// Second semester lecture topics
+let secondSemesterTopics = ["Evolution", "Human Anatomy", "Plant Physiology", "Microbiology"];
+console.log("Second semester topics:", secondSemesterTopics);
+
+// Combine both arrays using the spread operator
+let semesterTopics = [...firstSemesterTopics, ...secondSemesterTopics];
+console.log("Combined semester topics:", semesterTopics);
+
+
+console.log('---------------------');
+// Susikurkite masyvą, kuriame būtų išvardintos kelios spalvos. Padarykite šio masyvo kopiją ir duomenis iš originalaus masyvo pašalinkite. Išveskite abu masyvus, atkreipkite dėmesį į tai kad pašalinus duomenis iš pirmojo masyvo, turėjo pasinaikinti tik iš jo, o antrame viskas likti tvarkingai, o jeigu išsitrynė abiejų duomenys - pamėginkite surasti priežastį ir sutvarkyti.
+let colors = ["red", "blue", "green", "yellow", "purple"];
+console.log("Original colors array:", colors);
+
+// Copy the array using slice()
+let colorsCopy = colors.slice();
+
+// Clear original array by assigning an empty array
+colors = [];
+
+console.log("Copy of colors array (should remain unchanged):", colorsCopy);
+console.log("Original colors array after clearing (should be empty):", colors);
+
+
+console.log('---------------------');
+// Susikurkite masyvą, kuriame būtų saugomi miestų pavadinimai. Atlikite paiešką masyve su indexOf surasdami kurioje pozicijoje yra pasirinktas miestas.
+let cities = ["Vilnius", "Kaunas", "Klaipėda", "Šiauliai", "Panevėžys"];
+console.log('Cities:', cities);
+
+// Find the position (index) of the city "Klaipėda"
+let position = cities.indexOf('Klaipėda');
+console.log('Position of Klaipėda in the array:', position);
+
+
+console.log('---------------------');
+// Susikurkite bet kokį masyvą. Parašykite programą kuri išsiaiškintų ar masyve yra bent vienas dublikatas.
+// Pvz, masyve [1, 2, 3] nėra dublikatų.
+// O masyve [1, 2, 3, 4, 2] yra dublikatų (skaičius 2).
+numbers = [10, 7, 25, 10]
+let dublicate = false
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers.indexOf(numbers[i]) !== i) {
+        dublicate = true
+    }
+}
+console.log(dublicate);
+
+
+console.log('---------------------');
+// Parašykite programą, kuri galėtų masyvą išskaidyti į pasirinkto dydžio gabalėlius (chunk size). Pvz turint masyvą [1, 2, 3, 4, 5, 6] ir pasirinkus chunk size 2, turėtų gautis toks masyvas - [[1, 2], [3, 4], [5, 6]].
+numbers = [1, 2, 3, 4, 5, 6]
+console.log(numbers);
+
+let newNumbers = []
+for (let i = 0; i < numbers.length; i += 2) {
+    newNumbers.push(numbers.slice(i, i + 2))
+}
+console.log(newNumbers);
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Suraskite jame pirmą skaičių (naudojant find metodą), kuris yra lyginis. Pvz, jeigu masyvas bus [3, 7, 2, 9, 6, 4], tai atsakymas turi gautis 2, nes 3 ir 7 buvo nelyginiai.
+numbers = [10, 7, 25, 10]
+console.log(numbers.find(number => number % 2 == 0));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą, kuriame būtų teigiamų ir neigiamų skaičių. Suraskite jame pirmą skaičių, kuris yra teigiamas (daugiau nei 0). Pvz, jeigu masyvas bus [-3, 0, 5, -8, 2, 7], atsakymas turi gautis 5.
+numbers = [-2, -5, -3, 12, -8, 0, 7, -1];
+console.log(numbers.find(number => number > 0));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Suraskite jame pirmą skaičių, kuris yra neigiamas ir yra lyginis. Pvz, jeigu masyvas [5, 8, -3, -6, 4, 7], tai atsakymas yra -6.
+numbers = [5, 8, -3, -6, 4, 7]
+console.log(numbers.find(number => number < 0 && number % 2 === 0));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Patikrinkite ar šiame masyve visi skaičiai yra teigiami (didesni nei 0). Pvz, jeigu masyvas [7, 5, 9, 8], tai atsakymas true, o jeigu masyvas [8, 9, -3, 2], tai atsakymas false.
+numbers = [5, 8, -3, -6, 4, 7]
+console.log(numbers.every(number => number > 0));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Patikrinkite ar šiame masyve visi skaičiai yra lyginiai. Pvz, jeigu masyvas yra [2, 4, 8, 6], tai atsakymas true, o jeigu masyvas [7, 3, 6, 8, 10], tai atsakymas false.
+numbers = [5, 8, -3, -6, 4, 7]
+console.log(numbers.every(number => number % 2 === 0));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Patikrinkite ar šiame masyve yra bent vienas skaičius, kuris yra mažesnis nei 5. Pvz, jeigu masyvas [8, 20, 5, 97, 44], tai atsakymas false, bet jeigu masyvas [20, 3, 7, 9], tai atsakymas true.
+numbers = [20, 3, 7, 9]
+console.log(numbers.some(number => number < 5));
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą, kuriame būtų teigiamų ir neigiamų skaičių. Patikrinkite ar šiame masyve yra bent vienas teigiamas skaičius (didesnis nei 0). Pvz, jeigu masyvas [7, 2, -3, -6], tai atsakymas yra true, o jeigu masyvas yra [-8, -6, -4], tai atsakymas yra false.
+numbers = [-8, -6, -4]
+console.log(numbers.some(number => number > 0));
+
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Patikrinkite ar visi šiame masyve esantys žodžiai yra sudaryti iš 3 ar daugiau raidžių. Pvz, jeigu masyvas yra [‘antis’, ‘ožka’, ‘arklys’], tai atsakymas true, o jeigu masyvas [‘abc’, ‘de’, ‘fgia’], tai atsakymas false.
+words = ["apple", "pear", "banana", "cherry"]
+console.log(words.every(word => word.length >= 3));
+
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Patikrinkite ar šiame masyve yra bent vienas žodis prasidedantis raide a (turi surasti nepriklausomai tai didžioji ar mažoji raidė). Pvz, jeigu masyvas [‘bananas’, ‘agurkas’, ‘pomidoras’], tai atsakymas true, o jeigu masyvas [‘kaunas’, ‘vilnius’, ‘klaipėda’], tai atsakymas false.
+words = ["Apple", "pear", "banana", "cherry"]
+console.log(words.some(word => word.toLowerCase().startsWith('a')));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Patikrinkite ar visi šiame masyve esantys skaičiai yra teigiami ir ar yra bent vienas skaičius, kuris būtų lyginis. Pvz, masyvas [3, 7, 2, 9, 6, 4], grąžina true, o masyvas [4, -2, 3, 7] grąžina false.
+numbers = [4, -2, 3, 7]
+
+if (numbers.every(number => number > 0) && numbers.some(number => number % 2 === 0)) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą, kuriame būtų teigiamų ir neigiamų skaičių. Išfiltruokite skaičius, kurie yra teigiami. Pvz, jeigu masyvas yra [4, -3, -2, 8, 9, 5], tai išfiltruotas variantas yra [4, 8, 9, 5].
+numbers = [4, -3, -2, 8, 9, 5]
+console.log(numbers.filter(number => number > 0));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą, kuriame būtų saugomi prekės reitingai (skaičiai nuo 1 iki 5). Išfiltruokite tuos įrašus, kur balų yra 1 arba 2. Pvz, jeigu masyvas [5, 1, 4, 5, 1, 3, 4, 5, 2], tai išfiltravus gausis [1, 1, 2].
+let productRatings = [5, 1, 4, 5, 1, 3, 4, 5, 2]
+console.log(productRatings.filter(rating => rating <= 2));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą, kuriame būtų ir teigiamų ir neigiamų skaičių. Išfiltruokite tik tuos skaičius, kurie yra teigiami ir yra lyginiai. Pvz, jeigu turite masyvą [5, -3, 2, 7, 8, -4, 1] tai turi gautis [2, 8].
+numbers = [5, -3, 2, 7, 8, -4, 1]
+console.log(numbers.filter(number => number > 0 && number % 2 === 0));
+
+
+console.log('---------------------');
+// Susikurkite šalių pavadinimų masyvą. Išfiltruokite tik tas šalis, kurių pavadinime yra raidė b (nesvarbu didžioji ar mažoji raidė). Pvz, jeigu turite masyvą [‘Belgija’, ‘Lietuva’, ‘Graikija’, ‘Bulgarija’], tai turi gautis [‘Belgija’, ‘Bulgarija’].
+countries = ["Lithuania", "Latvia", "Estonia", "Poland", "Germany"];
+console.log(countries);
+let countriesL = []
+
+// for (let i = 0; i < countries.length; i++) {
+//     // console.log(countries[i].split(''));
+//     // console.log(countries[i].includes('l'));
+//     let countriesLower = countries[i].toLowerCase()
+
+//     if (countriesLower.includes('l')) {
+//         countriesL.push(countries[i])
+//         // console.log(countries[i]);
+//     }
+// }
+
+countries.forEach((country) => {
+    let countriesLower = country.toLowerCase()
+    // console.log(countriesLower);
+
+    if (countriesLower.includes('l')) {
+        countriesL.push(country)
+    }
+})
+
+console.log(countriesL);
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Išfiltruokite lyginius skaičius ir juos padvigubinkite. Pvz, jeigu masyvas yra [3, 7, 2, 9, 6, 4], išfiltravus gausis [2, 6, 4], o padvigubinus galutinis variantas bus [4, 12, 8].
+numbers = [3, 7, 2, 9, 6, 4]
+newNumbers = []
+
+let numbersEven = numbers.filter(number => number % 2 === 0)
+console.log(numbersEven);
+
+numbersEven = numbersEven.map(number => number * 2)
+console.log(numbersEven);
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Kiekvieną skaičių jame padidinkite per 1. Pvz, jeigu masyvas yra [7, 8, 9, 2, 3], tai turi gautis [8, 9, 10, 3, 4].
+numbers = [3, 7, 2, 9, 6, 4]
+console.log(numbers);
+console.log(numbers.map(number => number + 1));
+
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Kiekvieną žodį iš šio masyvo paverskite į variantą iš didžiųjų raidžių. Pvz, jeigu turite masyvą [‘bananas’, ‘baba’, ‘klėtis’], tai turi gautis [‘BANANAS’, ‘BABA’, ‘KLĖTIS’].
+words = ["apple", "pear", "banana", "cherry"]
+console.log(words);
+console.log(words.map(word => word.toUpperCase()));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Gaukite visų skaičių sumą. Pvz, jeigu masyvas yra [2, 3, 1], tai atsakymas 6.
+numbers = [3, 7, 2]
+console.log(numbers);
+console.log(numbers.reduce((sum, number) => sum + number));
+
+
+console.log('---------------------');
+// Susikurkite skaičių masyvą. Atrinkite tik tuos skaičius, kurie yra lyginiai ir gaukite jų sumą. Pvz, jeigu masyvas yra [1, 2, 3, 4, 5], atrinkus gausis [2, 4], o šių skaičių suma ir galutinis atsakymas yra 6.
+numbers = [3, 7, 2, 9, 6, 4]
+console.log(numbers);
+let even = numbers.filter(number => number % 2 === 0)
+console.log(even);
+console.log(even.reduce((sum, number) => sum + number));
+
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Pasiimkite kiekvieno žodžio pirmą raidę, ją padarykite iš didžiosios raidės. Pvz, jeigu turite masyvą [‘šuo’, ‘katė’, ‘gyvatė’], tai turi gautis [‘Š’, ‘K’, ‘G’].
+words = ["apple", "pear", "banana", "cherry"]
+let firstC = words.map(word => word.toUpperCase().slice(0, 1))
+console.log(firstC);
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Raskite kiek šiame masyve yra žodžių, kurie susideda iš 5 ar daugiau raidžių. Pvz, jeigu masyvas yra [‘bananas’, ‘persikas’, ‘abc’, ‘de’], tai atrinkus žodžius gausis [‘bananas’, ‘persikas’], o tokių žodžių yra ir galutinis atsakymas skaitosi 2.
+words = ["bananas", "persikas", "abc", "de"]
+
+let filtered = words.filter(word => word.length >= 5);
+console.log(filtered, filtered.length);
+
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Raskite kiekvieno žodžio simbolių kiekį. Pvz, jeigu masyvas yra [‘obelis’, ‘liepa’, ‘eglė’, ‘uosis’], tai turi gautis [6, 5, 4, 5].
+words = ["apple", "pear", "banana", "cherry"]
+console.log(words.map(word => word.length));
+
+
+console.log('---------------------');
+// Susikurkite masyvą, kur string pavidalu kiekviename elemente būtų sudėti vardai ir amžiai. Ištraukite iš tokio masyvo tik vardus. Pvz, jeigu masyvas yra [‘Tomas 34’, ‘Jonas 20’, ‘Gintarė 40’, ‘Inga 24’], tai turi gautis [‘Tomas’, ‘Jonas’, ‘Gintarė’, ‘Inga’].
+let people = ["Tomas 25", "Agnė 30", "Mantas 22", "Ieva 28"];
+console.log(people.map(name => name.split(' ')[0]));
+
+
+console.log('---------------------');
+// Susikurkite masyvą, kur string pavidalu kiekviename elemente būtų sudėti vardai ir amžiai. Ištraukite iš tokio masyvo tik amžius, juos paverskite į skaičius ir raskite bendrą sumą. Pvz, jeigu masyvas yra [‘Tomas 34’, ‘Jonas 20’, ‘Gintarė 40’, ‘Inga 24’], tai išrinkus info gausis [34, 20, 40, 24] ir suradus sumą turėsime 118.
+people = ["Tomas 25", "Agnė 30", "Mantas 22", "Ieva 28"];
+let age = people.map(name => parseInt(name.split(' ')[1]))
+// console.log(age);
+console.log(age.reduce((sum, age) => sum + age));
+
+
+console.log('---------------------');
+// Susikurkite masyvą prekių likučiams saugoti (tik likučių skaičiai). Išrinkite visus likučius, kurių liko mažai (mažiau nei 5 vnt.), ties kiekvienu likučiu paskaičiuokite kiek trūksta iki ribos. Pvz, jeigu turite masyvą [74, 2, 54, 3, 1, 87], išfiltravus liks [2, 3, 1], o paskaičiavus kiek kiekvieno trūksta iki 5, gausis [3, 2, 4].
+let stockCounts = [74, 2, 54, 3, 1, 87]
+
+let lessThan5 = stockCounts.filter(stock => stock < 5)
+console.log(lessThan5);
+
+lessThan5 = lessThan5.map(number => 5-number)
+console.log(lessThan5);
+
+
+console.log('---------------------');
+// Susikurkite masyvą studento pažymiams saugoti. Suraskite kiek studentas turi gerų pažymių (8 ar daugiau). Pvz, jeigu masyvas yra [7, 8, 10, 6, 5, 9], išfiltravus gausis [8, 10, 9], o tokių pažymių jis turi 3.
+grades = [7, 8, 10, 6, 5, 9]
+console.log(grades.filter(grade => grade >= 8));
+console.log(grades.filter(grade => grade >= 8).length);
+
+
+console.log('---------------------');
+// Susikurkite žodžių masyvą. Suraskite kiek iš viso šiame masyve per visus žodžius yra raidžių a (nesvarbu didžioji ar mažoji raidė). Pvz, jeigu masyvas yra [‘bananas’, ‘obelis’, ‘automobilis’], gausis kad yra 4 raidės.
+words = ["bananas", "obelis", "automobilis"]
+
+// console.log(words.join(''));
+words = words.join('').toLowerCase().split('')
+console.log(words.join().toLowerCase().split(''));
+
+
+console.log(words.filter(ch => ch === 'a').length)
