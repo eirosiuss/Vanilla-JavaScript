@@ -228,4 +228,82 @@ for (const [index, element] of student1.grades.entries()) {
 }
 
 
+console.log('--------------------');
+// Susikurkite knygų objektų masyvą. Apie kiekvieną knygą į atskirus knygų objektus sudėkite norimą informaciją (bent 3 savybes). Į masyvą įdėkite bent 3 knygas. Visas šias knygas išsiveskite. Tuomet parodykite pirmą knygą. Antros knygos kažkurią savybę.
+let books = [
+    {
+        title: '1984',
+        author: 'George Orwell',
+        year: 1949
+    },
+    {
+        title: 'Harry Potter and the Philosopher\'s Stone',
+        author: 'J.K. Rowling',
+        year: 1997
+    },
+    {
+        title: 'The Alchemist',
+        author: 'Paulo Coelho',
+        year: 1988
+    }
+];
+console.log(books);
+console.log(books[0]);
+console.log(books[1].title);
 
+console.log('--------------------');
+// Susikurkite prekių objektų masyvą ir jį užpildykite pasirinktais duomenimis. Išveskite visų prekių pavadinimus su kainomis ir dar kokiais nors atributais atskirose eilutėse.
+let products = [
+    {
+        name: 'Wireless Mouse',
+        price: 25.99,
+        inStock: true
+    },
+    {
+        name: 'Bluetooth Headphones',
+        price: 59.99,
+        inStock: false
+    },
+    {
+        name: 'Laptop Stand',
+        price: 34.50,
+        inStock: true
+    }
+];
+
+products.forEach(element => {
+    console.log(element.name, element.price);
+
+});
+
+
+console.log('--------------------');
+// Susikurkite automobilių objektų masyvą ir užpildykite jį pasirinktais duomenimis. Išveskite kiekvieno automobilio pavadinimą, metus ir paskaičiuotą jo amžių (dabartiniai metai - gamybos metai).
+let cars = [
+    {
+        brand: 'Audi',
+        model: 'A4',
+        year: 2015,
+        mileage: 120000,
+        fuelType: 'Diesel'
+    },
+    {
+        brand: 'Toyota',
+        model: 'Corolla',
+        year: 2018,
+        mileage: 90000,
+        fuelType: 'Petrol'
+    },
+    {
+        brand: 'Tesla',
+        model: 'Model 3',
+        year: 2021,
+        mileage: 30000,
+        fuelType: 'Electric'
+    }
+]
+
+cars.forEach(element => {
+    console.log(element.brand, element.year, new Date().getFullYear() - element.year);
+    
+});
