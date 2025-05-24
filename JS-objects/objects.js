@@ -305,5 +305,172 @@ let cars = [
 
 cars.forEach(element => {
     console.log(element.brand, element.year, new Date().getFullYear() - element.year);
-    
+
 });
+
+console.log('--------------------');
+// Susikurkite objektų masyvą įmonių duomenims saugoti ir jį užpildykite duomenimis. Išveskite kiekvienos įmonės informaciją atskirose eilutėse, gražiai suformatuotai (sakinio pavidalu ar pan.). Taip pat, ką nors paskaičiuokite iš turimų skaitinių duomenų (pvz.: vidutinis darbuotojų kiekis, darbuotojų kiekis per visas įmones.).
+let companies = [
+    {
+        name: "Tech Solutions Ltd.",
+        companyCode: "123456789",
+        address: "1 Vilnius St., Vilnius",
+        employeeCount: 25,
+        industry: "Information Technology"
+    },
+    {
+        name: "Green Leaf MB",
+        companyCode: "987654321",
+        address: "5 Kaunas St., Kaunas",
+        employeeCount: 10,
+        industry: "Food Production"
+    },
+    {
+        name: "Construction Solutions AB",
+        companyCode: "456789123",
+        address: "10 Builders St., Klaipeda",
+        employeeCount: 100,
+        industry: "Construction"
+    }
+];
+
+
+// sum = 0
+
+// companies.forEach(company => {
+//     console.log(company.name, company.companyCode);
+
+//     sum +=company.employeeCount
+// })
+
+// console.log(sum);
+
+// console.log(sum / companies.length);
+
+sum = companies.reduce((sum, company) => sum + company.employeeCount, 0)
+
+console.log(sum);
+console.log(sum / companies.length);
+
+
+console.log('--------------------');
+// Susikurkite objektų masyvą ligoninių duomenims saugoti ir užpildykite jį pasirinktais duomenimis. Išveskite ligoninių pavadinimus su adresais skirtingose eilutėse. Suskaičiuokite ką nors iš skaitinių jų duomenų, pvz.: bendrą lankytojų kiekį, bendrą ar vidutinį darbuotojų kiekį, ar pan.
+
+let hospitals = [
+    {
+        name: "Vilnius City Hospital",
+        code: "100001",
+        address: "Antakalnio g. 57, Vilnius",
+        beds: 350,
+        departments: ["Emergency", "Cardiology", "Neurology", "Pediatrics"]
+    },
+    {
+        name: "Kaunas Clinical Hospital",
+        code: "100002",
+        address: "Eivenių g. 2, Kaunas",
+        beds: 420,
+        departments: ["Surgery", "Oncology", "Orthopedics", "Intensive Care"]
+    },
+    {
+        name: "Klaipėda Regional Hospital",
+        code: "100003",
+        address: "Liepojos g. 41, Klaipėda",
+        beds: 280,
+        departments: ["Gynecology", "Psychiatry", "Rehabilitation"]
+    }
+]
+
+sum = hospitals.reduce((sum, hospital) => sum + hospital.beds, 0)
+console.log(sum);
+console.log(sum / hospitals.length);
+
+
+console.log('--------------------');
+// Susikurkite studentų objektų masyvą, kur apie kiekvieną studentą būtų žinoma ši informacija: vardas ir pavardė, amžius, pažymiai, studijų programa, kursas. Kiekvieną studentą išveskite taip: pirmoje eilutėje visi studento duomenys išskyrus jo pažymius, antroje eilutėje jo pažymiai, trečioje jo pažymių vidurkis su prierašu 'pažymių vidurkis'. Išvedus visus studentus dėkite brūkšnį (pvz.: -----) ir išveskite bendrą visų studentų pažymių vidurkį.
+let students = [
+    {
+        name: "Jonas Jonaitis",
+        age: 21,
+        grades: [8, 9, 10, 7],
+        program: "Informatika",
+        year: 2
+    },
+    {
+        name: "Aistė Petrauskaitė",
+        age: 22,
+        grades: [9, 9, 8, 10],
+        program: "Verslo administravimas",
+        year: 3
+    },
+    {
+        name: "Tomas Kazlauskas",
+        age: 20,
+        grades: [2, 6, 7, 8, 7],
+        program: "Statyba",
+        year: 1
+    }
+]
+
+let allGradesSum = 0
+let allGradesCount = 0
+
+students.forEach((student) => {
+
+    console.log(student.name, student.age, student.program, student.year)
+    console.log(student.grades);
+    let gradesSum = student.grades.reduce((sum, grade) => sum + grade, 0)
+    let gradesAvg = gradesSum / student.grades.length
+    allGradesCount += student.grades.length
+    console.log(student.name, 'grades avg:', gradesAvg)
+    allGradesSum += gradesSum
+
+    console.log('-----');
+}
+);
+
+console.log('--------------------');
+
+console.log('All students avg. grade:', (allGradesSum / allGradesCount).toFixed(2))
+
+
+console.log('--------------------');
+// Susikurkite parduotuvės objektą, kuriame būtų ši informacija: pavadinimas, adresas, darbuotojų kiekis, prekių objektų masyvas. Apie kiekvieną prekę parduotuvėje žinoma ši informacija: pavadinimas; kodas; kaina; savikaina; turimas kiekis. Išveskite parduotuvės bendrą informaciją, tuomet užrašą "prekės" ir atskirose eilutėse turimas prekes su kuria nors jų informacija (pvz.: pavadinimai, kainos ir turimi kiekiai). Galiausiai paskaičiuokite kiek iš viso parduotuvė turi visų prekių (sudėkite jų kiekius). Raskite ir išveskite kurios prekės turima daugiausiai, o kurios mažiausiai.
+
+let store = {
+  name: "Super Parduotuvė",
+  address: "Gedimino pr. 10, Vilnius",
+  employeeCount: 15,
+  products: [
+    {
+      name: "Pienas 1L",
+      code: "P001",
+      price: 1.20,
+      costPrice: 0.80,
+      quantity: 100
+    },
+    {
+      name: "Duona",
+      code: "P002",
+      price: 0.90,
+      costPrice: 0.50,
+      quantity: 50
+    },
+    {
+      name: "Kava 250g",
+      code: "P003",
+      price: 3.50,
+      costPrice: 2.00,
+      quantity: 30
+    }
+  ]
+};
+
+// console.log(store.name, store.address);
+// console.log('Products');
+
+
+// // console.log(Object.entries(store));
+// Object.entries(store).forEach(element => 
+//     console.log(element[1])
+    
+// )
