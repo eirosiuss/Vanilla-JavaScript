@@ -437,40 +437,55 @@ console.log('--------------------');
 // Susikurkite parduotuvės objektą, kuriame būtų ši informacija: pavadinimas, adresas, darbuotojų kiekis, prekių objektų masyvas. Apie kiekvieną prekę parduotuvėje žinoma ši informacija: pavadinimas; kodas; kaina; savikaina; turimas kiekis. Išveskite parduotuvės bendrą informaciją, tuomet užrašą "prekės" ir atskirose eilutėse turimas prekes su kuria nors jų informacija (pvz.: pavadinimai, kainos ir turimi kiekiai). Galiausiai paskaičiuokite kiek iš viso parduotuvė turi visų prekių (sudėkite jų kiekius). Raskite ir išveskite kurios prekės turima daugiausiai, o kurios mažiausiai.
 
 let store = {
-  name: "Super Parduotuvė",
-  address: "Gedimino pr. 10, Vilnius",
-  employeeCount: 15,
-  products: [
-    {
-      name: "Pienas 1L",
-      code: "P001",
-      price: 1.20,
-      costPrice: 0.80,
-      quantity: 100
-    },
-    {
-      name: "Duona",
-      code: "P002",
-      price: 0.90,
-      costPrice: 0.50,
-      quantity: 50
-    },
-    {
-      name: "Kava 250g",
-      code: "P003",
-      price: 3.50,
-      costPrice: 2.00,
-      quantity: 30
-    }
-  ]
+    name: "Super Parduotuvė",
+    address: "Gedimino pr. 10, Vilnius",
+    employeeCount: 15,
+    products: [
+        {
+            name: "Pienas 1L",
+            code: "P001",
+            price: 1.20,
+            costPrice: 0.80,
+            quantity: 100
+        },
+        {
+            name: "Duona",
+            code: "P002",
+            price: 0.90,
+            costPrice: 0.50,
+            quantity: 50
+        },
+        {
+            name: "Kava 250g",
+            code: "P003",
+            price: 3.50,
+            costPrice: 2.00,
+            quantity: 30
+        }
+    ]
 };
 
-// console.log(store.name, store.address);
-// console.log('Products');
+console.log(store.name, store.address);
+
+console.log(store.products);
+
+store.products.forEach(element => {
+    console.log(element.name)
+    console.log(element.costPrice)
+    console.log(element.quantity)
+    console.log('--------')
+})
+
+let productsQuantity = store.products.reduce((sum, value) => sum + value.quantity, 0)
+console.log('Products quantity:', productsQuantity)
 
 
-// // console.log(Object.entries(store));
-// Object.entries(store).forEach(element => 
-//     console.log(element[1])
-    
-// )
+let smallest = store.products.sort((a, b) => a.quantity - b.quantity)[0]
+console.log('Smallest:', smallest.name, smallest.quantity);
+
+
+let largest = store.products.reduce((max, value) =>
+    value.quantity > max.quantity ? value : max
+);
+
+console.log('Max:', largest.name, largest.quantity);
