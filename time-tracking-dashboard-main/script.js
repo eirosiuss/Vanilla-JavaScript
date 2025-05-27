@@ -1,67 +1,23 @@
-const timeframe = document.getElementById('timeframe')
-// console.log(timeframe);
+async function populate() {
+    const requestURL =
+        "/Vanilla-JavaScript/time-tracking-dashboard-main/data.json"
+    const request = new Request(requestURL)
 
-const appendItem = (item) => {
-    // console.log(item);
+    const response = await fetch(request)
+    const data = await response.json()
 
-    const list = document.getElementById('timeframe')
-    const newItem = document.createElement('li')
-    newItem.textContent = item;
-    list.appendChild(newItem);
+    populateHeader(data)
 }
 
-const populateDOM = (data) => {
-    // console.log(data);
+function populateHeader(obj) {
+    const cardHeader = document.querySelectorAll('.header')
 
-    data.forEach((item) => {
-        // console.log(item);
-
-        appendItem(item.timeframes);
-
-        Object.entries(item).forEach(element => {
-            console.log(element);
-
-        });
-
+    obj.forEach((element, index) => {
+        // console.log(element.title, cardHeader[index])
+        const cardH2 = document.createElement('h2')
+        cardH2.textContent = element.title
+        cardHeader[index].appendChild(cardH2)
     })
 }
 
-
-
-
-
-
-const cards = document.getElementById('cards')
-console.log(cards);
-
-const title = document.querySelector('.header h2')
-// console.log(title);
-
-
-
-fetch('/Vanilla-JavaScript/time-tracking-dashboard-main/data.json')
-    .then(response => {
-        if (!response.ok) throw new Error('error');
-        return response.json();
-    })
-    .then(data => {
-        data.forEach(activity => {
-            const card = document.createElement('div')
-            card.innerHTML = `
-            <h2>${activity.title}</h2>`
-            // console.log(card.innerHTML);
-
-            cards.appendChild(card)
-
-            console.log(activity.timeframes.daily);
-            
-            
-
-
-
-
-        });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+populate()
