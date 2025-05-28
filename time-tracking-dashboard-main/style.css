@@ -111,6 +111,8 @@ select {
 
 button {
     border: none;
+    background: inherit;
+    cursor: pointer;
 }
 
 textarea:not([rows]) {
@@ -126,7 +128,7 @@ textarea:not([rows]) {
 
 main {
     margin: 252px auto;
-    max-width: 1116px;
+    max-width: 1164px;
     padding: 0 24px;
 }
 
@@ -217,8 +219,12 @@ main {
     gap: 32px;
 }
 
-div:nth-child(1) {
+.card:nth-child(1) {
     grid-row: 1 / span 2;
+    max-width: 255px;
+    width: 100%;
+    background: rgb(var(--clr-navy-900));
+    border-radius: 5%;
 }
 
 @media (36em <=width <=48em) {
@@ -227,7 +233,7 @@ div:nth-child(1) {
         gap: 24px;
     }
 
-    div:nth-child(1) {
+    .card:nth-child(1) {
         /* grid-row: auto */
         grid-column: 1 / span 3;
     }
@@ -239,8 +245,58 @@ div:nth-child(1) {
         gap: 24px;
     }
 
-    div:nth-child(1) {
+    .card:nth-child(1) {
         /* grid-row: auto; */
         /* grid-column: 1; */
     }
+}
+
+.profile-img {
+    width: 78px;
+    border: 3px solid rgb(var(--clr-white));
+    border-radius: 50%;
+    box-shadow: 0 4px 4px rgba(var(--clr-black), 0.25);
+    margin-bottom: 40px;
+}
+
+
+.profile-header {
+    background: rgb(var(--clr-purple-600));
+    border-radius: 5%;
+    padding: 32px 32px 92px;
+}
+
+.card:nth-child(1) ul {
+    background: rgb(var(--clr-navy-900));
+    padding: 32px;
+    border-radius: 0 0 5% 5%;
+}
+
+.card:nth-child(1) ul li:nth-child(2) {
+    margin: 21px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+button svg {
+    display: block
+}
+
+.card:not(:first-child)>div {
+    padding: 32px;
+    background: rgb(var(--clr-navy-900));
+    border-radius: 5%;
+    margin-top: 47px;
+}
+
+.card .current {
+    padding: 24px 0 8px;
+}
+
+.card:nth-child(2) {
+    background-color: rgb(var(--clr-orange));
+    border-radius: 5%;
 }

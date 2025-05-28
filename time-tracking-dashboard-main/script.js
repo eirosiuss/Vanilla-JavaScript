@@ -42,7 +42,7 @@ const previousHours = document.querySelectorAll('.previous')
 function populateDaily(obj) {
     obj.forEach((element, index) => {        
         const currentNumber = element.timeframes.daily.current
-        currentHours[index].textContent = currentNumber
+        currentHours[index].textContent = `${currentNumber}hrs`
 
         previousHours[index].textContent = `Yesterday - ${element.timeframes.daily.previous}hrs`;
     })
@@ -51,7 +51,7 @@ function populateDaily(obj) {
 function populateWeekly(obj) {
     obj.forEach((element, index) => {
         const currentNumber = element.timeframes.weekly.current
-        currentHours[index].textContent = currentNumber
+        currentHours[index].textContent = `${currentNumber}hrs`
 
         previousHours[index].textContent = `Last week - ${element.timeframes.weekly.previous}hrs`;
 
@@ -61,7 +61,7 @@ function populateWeekly(obj) {
 function populateMonthly(obj) {
     obj.forEach((element, index) => {
         const currentNumber = element.timeframes.monthly.current
-        currentHours[index].textContent = currentNumber
+        currentHours[index].textContent = `${currentNumber}hrs`
 
         previousHours[index].textContent = `Last month - ${element.timeframes.monthly.previous}hrs`;
     })
