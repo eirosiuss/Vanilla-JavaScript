@@ -27,26 +27,24 @@ const weeklyBtn = document.querySelector('#weekly')
 const monthlyBtn = document.querySelector('#monthly')
 
 function populateHeader(obj) {
-    const cardHeader = document.querySelectorAll('.header')
+    const cardH2 = document.querySelectorAll('.header > h2')
 
     obj.forEach((element, index) => {
-        // console.log(element.title, cardHeader[index])
-        const cardH2 = document.createElement('h2')
-        cardH2.textContent = element.title
-        cardHeader[index].appendChild(cardH2)
+        // console.log(element.title, cardH2[index])        
+        const title = element.title
+        cardH2[index].textContent = title
     })
 }
 
-const currentHours = document.querySelectorAll('#current')
-const previousHours = document.querySelectorAll('#previous')
+const currentHours = document.querySelectorAll('.current')
+const previousHours = document.querySelectorAll('.previous')
 
 function populateDaily(obj) {
-    obj.forEach((element, index) => {
+    obj.forEach((element, index) => {        
         const currentNumber = element.timeframes.daily.current
         currentHours[index].textContent = currentNumber
 
-        const previousNumber = element.timeframes.daily.previous
-        previousHours[index].textContent = previousNumber
+        previousHours[index].textContent = `Yesterday - ${element.timeframes.daily.previous}hrs`;
     })
 }
 
@@ -55,8 +53,8 @@ function populateWeekly(obj) {
         const currentNumber = element.timeframes.weekly.current
         currentHours[index].textContent = currentNumber
 
-        const previousNumber = element.timeframes.weekly.previous
-        previousHours[index].textContent = previousNumber
+        previousHours[index].textContent = `Last week - ${element.timeframes.weekly.previous}hrs`;
+
     })
 }
 
@@ -65,8 +63,7 @@ function populateMonthly(obj) {
         const currentNumber = element.timeframes.monthly.current
         currentHours[index].textContent = currentNumber
 
-        const previousNumber = element.timeframes.monthly.previous
-        previousHours[index].textContent = previousNumber
+        previousHours[index].textContent = `Last month - ${element.timeframes.monthly.previous}hrs`;
     })
 }
 
