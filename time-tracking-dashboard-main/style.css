@@ -22,12 +22,12 @@
     --clr-grey: 216, 216, 216;
 
 
---fs-56: 3.5rem;
---fs-40: 2.5rem;
---fs-32: 2rem;
---fs-24: 1.5rem;
---fs-18: 1.125rem;
---fs-15: 0.9375rem;
+    --fs-56: 3.5rem;
+    --fs-40: 2.5rem;
+    --fs-32: 2rem;
+    --fs-24: 1.5rem;
+    --fs-18: 1.125rem;
+    --fs-15: 0.9375rem;
 }
 
 
@@ -124,6 +124,26 @@ textarea:not([rows]) {
 /* =============================================== */
 /* Utility classes */
 
+main {
+    margin: 252px auto;
+    max-width: 1116px;
+    padding: 0 24px;
+}
+
+@media (36em <=width <=48em) {
+    main {
+        max-width: 612px;
+        margin: 173px auto;
+    }
+}
+
+@media (width < 36em) {
+    main {
+        max-width: 327px;
+        margin: 81px auto;
+    }
+}
+
 .text-present-1 {
     font-size: var(--fs-56);
     font-weight: 300;
@@ -180,5 +200,47 @@ textarea:not([rows]) {
     letter-spacing: 0px;
 }
 
+.text-clr-navy-200 {
+    color: rgb(var(--clr-navy-200));
+}
+
+.text-clr-purple-500 {
+    color: rgb(var(--clr-purple-500));
+}
+
 /* =============================================== */
 /* Components */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+div:nth-child(1) {
+    grid-row: 1 / span 2;
+}
+
+@media (36em <=width <=48em) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    div:nth-child(1) {
+        /* grid-row: auto */
+        grid-column: 1 / span 3;
+    }
+}
+
+@media (width < 36em) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 24px;
+    }
+
+    div:nth-child(1) {
+        /* grid-row: auto; */
+        /* grid-column: 1; */
+    }
+}
