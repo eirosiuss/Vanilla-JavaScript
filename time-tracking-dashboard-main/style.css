@@ -412,33 +412,33 @@ button svg {
 
 .card:nth-child(2) {
     background-color: rgb(var(--clr-orange));
-    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-work.svg');
+    background-image: url('./images/icon-work.svg');
 }
 
 
 
 .card:nth-child(3) {
     background-color: rgb(var(--clr-blue));
-    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-play.svg');
+    background-image: url('./images/icon-play.svg');
 }
 
 .card:nth-child(4) {
     background-color: rgb(var(--clr-pink));
-    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-study.svg');
+    background-image: url('./images/icon-study.svg');
 }
 
 .card:nth-child(5) {
     background-color: rgb(var(--clr-green));
-    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-exercise.svg');
+    background-image: url('./images/icon-exercise.svg');
 }
 
 .card:nth-child(6) {
     background-color: rgb(var(--clr-purple-700));
-    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-social.svg');
+    background-image: url('./images/icon-social.svg');
 }
 
 .card:nth-child(7) {
     background-color: rgb(var(--clr-yellow));
-    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-self-care.svg');
+    background-image: url('./images/icon-self-care.svg');
 
 }
