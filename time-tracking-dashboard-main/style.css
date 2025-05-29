@@ -31,13 +31,18 @@
 }
 
 
-/* @media (36em <=width <=48em) {
-    :root {}
+@media (40.75em <=width <=57em) {
+    :root {
+        --fs-40: 1.5rem;
+    }
 }
 
-@media (width < 36em) {
-    :root {}
-} */
+@media (width < 40.75em) {
+    :root {
+        --fs-56: 2rem;
+        --fs-40: 1.5rem;
+    }
+}
 
 /* =============================================== */
 /* Reset */
@@ -129,19 +134,20 @@ textarea:not([rows]) {
 main {
     margin: 252px auto;
     max-width: 1164px;
+    width: 100%;
     padding: 0 24px;
 }
 
-@media (36em <=width <=48em) {
+@media (40.775em <=width <=57em) {
     main {
-        max-width: 612px;
+        max-width: 660px;
         margin: 173px auto;
     }
 }
 
-@media (width < 36em) {
+@media (width < 40.75em) {
     main {
-        max-width: 327px;
+        max-width: 100%;
         margin: 81px auto;
     }
 }
@@ -224,31 +230,45 @@ main {
     max-width: 255px;
     width: 100%;
     background: rgb(var(--clr-navy-900));
-    border-radius: 5%;
+    border-radius: 15px;
 }
 
-@media (36em <=width <=48em) {
+@media (40.75em <=width <=57em) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
     }
 
     .card:nth-child(1) {
-        /* grid-row: auto */
+        max-width: none;
         grid-column: 1 / span 3;
+    }
+
+    h1 {
+        line-height: 28px;
     }
 }
 
-@media (width < 36em) {
+@media (width < 40.75em) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
         gap: 24px;
     }
 
     .card:nth-child(1) {
-        /* grid-row: auto; */
-        /* grid-column: 1; */
+        max-width: none;
+        width: 100%;
     }
+
+    h1 {
+        line-height: 28px;
+    }
+}
+
+.profile-header {
+    background: rgb(var(--clr-purple-600));
+    border-radius: 15px;
+    padding: 32px 32px 92px;
 }
 
 .profile-img {
@@ -259,21 +279,78 @@ main {
     margin-bottom: 40px;
 }
 
-
-.profile-header {
-    background: rgb(var(--clr-purple-600));
-    border-radius: 5%;
-    padding: 32px 32px 92px;
-}
-
 .card:nth-child(1) ul {
     background: rgb(var(--clr-navy-900));
     padding: 32px;
-    border-radius: 0 0 5% 5%;
+    border-radius: 0 0 15px 15px;
 }
 
 .card:nth-child(1) ul li:nth-child(2) {
     margin: 21px 0;
+}
+
+@media (40.75em <=width <=57em) {
+    .profile-header {
+        display: flex;
+        gap: 24px;
+        padding: 34px;
+    }
+
+    .profile-img {
+        width: 64px;
+        margin-bottom: 0;
+    }
+
+    .card:nth-child(1) ul {
+        padding: 24px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .card:nth-child(1) ul li:nth-child(2) {
+        margin: 0;
+    }
+}
+
+@media (width < 40.75em) {
+    .profile-header {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        padding: 32px;
+    }
+
+    .profile-img {
+        width: 64px;
+        margin-bottom: 0;
+    }
+
+    .card:nth-child(1) ul {
+        padding: 24px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .card:nth-child(1) ul li:nth-child(2) {
+        margin: 0;
+    }
+
+    .hours-data {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.card:not(:first-child)>div {
+    padding: 32px;
+    background: rgb(var(--clr-navy-900));
+    margin-top: 45px;
+    border-radius: 15px;
 }
 
 .header {
@@ -285,18 +362,66 @@ button svg {
     display: block
 }
 
-.card:not(:first-child)>div {
-    padding: 32px;
-    background: rgb(var(--clr-navy-900));
-    border-radius: 5%;
-    margin-top: 47px;
-}
-
 .card .current {
     padding: 24px 0 8px;
 }
 
+@media (40.75em <=width <=57em) {
+    .card .current {
+        padding: 16px 0 8px;
+    }
+
+    .card:not(:first-child)>div {
+        margin-top: 33px;
+    }
+}
+
+@media (width < 40.75em) {
+    .card .current {
+        padding: 0
+    }
+
+    .card:not(:first-child)>div {
+        margin-top: 38px;
+    }
+}
+
+.card:not(:first-child) {
+    background-repeat: no-repeat;
+    background-position: top -11px right 17px;
+    border-radius: 15px;
+    margin-bottom: 3px;
+}
+
 .card:nth-child(2) {
     background-color: rgb(var(--clr-orange));
-    border-radius: 5%;
+    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-work.svg');
+}
+
+
+
+.card:nth-child(3) {
+    background-color: rgb(var(--clr-blue));
+    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-play.svg');
+}
+
+.card:nth-child(4) {
+    background-color: rgb(var(--clr-pink));
+    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-study.svg');
+}
+
+.card:nth-child(5) {
+    background-color: rgb(var(--clr-green));
+    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-exercise.svg');
+}
+
+.card:nth-child(6) {
+    background-color: rgb(var(--clr-purple-700));
+    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-social.svg');
+}
+
+.card:nth-child(7) {
+    background-color: rgb(var(--clr-yellow));
+    background-image: url('/Vanilla-JavaScript/time-tracking-dashboard-main/images/icon-self-care.svg');
+
 }
