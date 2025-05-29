@@ -40,7 +40,7 @@ const currentHours = document.querySelectorAll('.current')
 const previousHours = document.querySelectorAll('.previous')
 
 function populateDaily(obj) {
-    obj.forEach((element, index) => {        
+    obj.forEach((element, index) => {
         const currentNumber = element.timeframes.daily.current
         currentHours[index].textContent = `${currentNumber}hrs`
 
@@ -66,5 +66,23 @@ function populateMonthly(obj) {
         previousHours[index].textContent = `Last month - ${element.timeframes.monthly.previous}hrs`;
     })
 }
+
+const activeCards = document.querySelectorAll('.card:not(:first-child)')
+
+activeCards.forEach(card => {
+    card.addEventListener('click', () => {
+        document.querySelector('.active-card').classList.remove('active-card')
+        card.classList.add('active-card')
+    })
+})
+
+const activeTimeframe = document.querySelectorAll('ul button')
+
+activeTimeframe.forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelector('.active-button').classList.remove('active-button')
+        button.classList.add('active-button')
+    })
+})
 
 populate()

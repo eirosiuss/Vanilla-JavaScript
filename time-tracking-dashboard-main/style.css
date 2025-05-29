@@ -134,8 +134,7 @@ textarea:not([rows]) {
 main {
     margin: 252px auto;
     max-width: 1164px;
-    width: 100%;
-    padding: 0 24px;
+    width: fit-content;
 }
 
 @media (40.775em <=width <=57em) {
@@ -149,6 +148,7 @@ main {
     main {
         max-width: 100%;
         margin: 81px auto;
+        padding: 0 24px;
     }
 }
 
@@ -223,12 +223,11 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+    place-content: center;
 }
 
 .card:nth-child(1) {
     grid-row: 1 / span 2;
-    max-width: 255px;
-    width: 100%;
     background: rgb(var(--clr-navy-900));
     border-radius: 15px;
 }
@@ -351,6 +350,24 @@ main {
     background: rgb(var(--clr-navy-900));
     margin-top: 45px;
     border-radius: 15px;
+    cursor: pointer;
+}
+
+.card.active-card:not(:first-child)>div {
+    background: rgb(var(--clr-navy-800));
+}
+
+.card.active-card:not(:first-child)>div {
+    background: rgb(var(--clr-navy-800));
+}
+
+.active-button {
+    color: rgb(var(--clr-white));
+}
+
+button:hover,
+button:focus-visible {
+    color: rgb(var(--clr-white));
 }
 
 .header {
