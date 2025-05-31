@@ -359,21 +359,21 @@ console.log('--------------------------');
 
 // Vienas parametras
 const wordsArr = array => {
-        let longest = array.reduce((a, b) => a.length > b.length ? a : b)
-        return `${longest} ${longest.length}`
-    
-    }
-    
-    const wordsA = ['katė', 'šuo', 'obuolys', 'kompiuteris', 'mokykla']
+    let longest = array.reduce((a, b) => a.length > b.length ? a : b)
+    return `${longest} ${longest.length}`
+
+}
+
+const wordsA = ['katė', 'šuo', 'obuolys', 'kompiuteris', 'mokykla']
 
 console.log(wordsArr(wordsA));
 
 console.log('--------------------------')
 // Du parametrai
 const sumN = (a, b) => {
-  return a + b
+    return a + b
 }
-console.log(sumN(3, 5)); 
+console.log(sumN(3, 5));
 
 console.log('--------------------------')
 // Be {} skliaustu
@@ -383,6 +383,40 @@ console.log(multiplyN(4, 6));
 console.log('--------------------------')
 // be parametrų
 const greetB = () => {
-  console.log("Sveikas!")
+    console.log("Sveikas!")
 }
 greetB()
+
+console.log('--------------------------');
+// Susikurkite funkciją kuri per argumentus priimtų pažymių masyvą. Ji turėtų patikrinti ar visi pažymiai teigiami: jei visi teigiami turėtų grąžintų true kaip atsakymą, o jei yra bent vienas neigiamas - false. Susikurkite du pažymių masyvus. Iškvieskite šią funkciją du kartus, abu kartus perduodant skirtingus masyvus. Gautus atsakymus paverskite į tekstą (jeigu gavote true - išveskite tekstą 'visi studento pažymiai teigiami', jei false - 'studentas turi bent vieną neigiamą pažymį'). Šiam iškonvertavimui iš true/false į tekstą galite pamėginti pasikurti atskirą funkciją, jai perduoti kitos funkcijos atsakymą.
+const marksFunction = (array) => array.every((element) => element >= 4)
+
+let marks1 = [8, 9, 4, 10, 6]
+let marks2 = [5, 7, 9, 3, 10]
+
+console.log(marksFunction(marks1))
+console.log(marksFunction(marks2))
+
+const trueFalse = (boolean) => boolean ? 'visi studento pažymiai teigiami' : 'studentas turi bent vieną neigiamą pažymį'
+
+console.log(trueFalse(marksFunction(marks1)));
+console.log(trueFalse(marksFunction(marks2)));
+
+console.log('--------------------------');
+// Susikurkite darbuotojo objektą, kuriame turėtumėte šias savybes: vardas, pavardė, dabartinis atlyginimas, etatas. Šiame objekte sukurkite funkciją, kuri per argumentus priimtų procentus ir paskaičiuotų koks būtų darbuotojo atlyginimas, jei jo atlyginimas būtų pakeltas per nurodytą kiekį procentų. Taip pat, susikurkite funkciją, kuri per argumentus priimtų atnaujintą etato skaičių, ji turėtų paskaičiuoti kiek pasikeistų darbuotojo atlyginimas, jei jis pradėtų dirbti nurodytu etatu (tarkim jei dirba pilnu etatu ir atlyginimas 1000 eurų, tai per pusę sumažinus etatą (argumentuose būtų 0.5) jo atlyginimas kristų iki 500). Iškvieskite šias objekto funkcijas ir išsiveskite gautus atsakymus.
+const employee = {
+    firstName: "John",
+    lastName: "Doe",
+    currentSalary: 3500,
+    position: "Software Developer",
+    positionType: 1,
+    salaryOffer: function (numberPercentage) {
+        return (this.currentSalary * (numberPercentage / 100)) + this.currentSalary
+    },
+    positionOffer: function (positionTypeNumber) {
+        return this.currentSalary * positionTypeNumber
+    }
+}
+console.log(employee.salaryOffer(10))
+
+console.log(employee.positionOffer(0.5))
