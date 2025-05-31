@@ -5,47 +5,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tip calculator app</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 
 <body>
 
   <header>
-    <h1></h1>
+    <h1 class="uppercase text-green-900"><span>Spli</span><span>tter</span></h1>
   </header>
 
   <div class="container">
     <main>
 
       <div class="bill">
-        <label for="bill">Bill</label>
-        <input id="bill" placeholder="$" type="number" name="bill" value=0>
+        <label class="text-preset-5 text-grey-500" for="bill">Bill</label>
+        <input class="text-preset-5 text-green-900" id="bill" placeholder="$" type="number" name="bill" value=0>
       </div>
 
       <div class="tip">
-        <p>Select Tip %</p>
+        <p class="text-preset-5">Select Tip %</p>
         <div class="tip-percentage">
           <button id="five-percent" type="button">5%</button>
           <button id="ten-percent" type="button">10%</button>
           <button id="fifteenth-percent" type="button">15%</button>
           <button id="twentyfive-percent" type="button">25%</button>
           <button id="fifty-percent" type="button">50%</button>
-          <input id="custom-percent" type="text" value="Custom">
+          <input class=" text-preset-3 text-grey-500" id="custom-percent" type="text" value="Custom">
         </div>
       </div>
 
       <div class="number-of-people">
-        <label for="people">
-          <input type="number" name="people" id="amount-of-people">
-        </label>
+        <label class="text-preset-5 text-grey-500" for="people">Number Of People</label>
+        <input class="text-preset-5 text-green-900" type="number" name="people" id="amount-of-people" value=0>
       </div>
 
       <div class="calculations">
         <div>
-          <p>Tip Amount <span>/ person</span></p>
+          <p class="text-preset-5 text-white">Tip Amount <span class="text-preset-6 text-grey-400">/ person</span></p>
           <p id="tip-amount">$0.00</p>
         </div>
         <div>
-          <p>Total <span>/ person</span></p>
+          <p class="text-preset-5 text-white">Total <span class="text-preset-6 text-grey-400">/ person</span></p>
           <p id="total">$0.00</p>
         </div>
         <button id="reset" type="button">Reset</button>
