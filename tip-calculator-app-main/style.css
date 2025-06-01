@@ -297,6 +297,10 @@ input.btn {
     color: rgb(var(--clr-grey-550));
 }
 
+input.btn::placeholder {
+    color: rgb(var(--clr-grey-550));
+}
+
 input.btn:focus {
     outline: none;
 }
@@ -436,15 +440,15 @@ main {
         padding: 32px 40px;
         display: flex;
         gap: 48px;
-    } 
+    }
 
-    main > div {
+    main>div {
         flex: 1;
     }
 }
 
 
-/* Section margins */
+/* Margins for sections */
 .tip {
     margin: 32px 0;
 }
@@ -480,4 +484,16 @@ h1 {
     h1 {
         margin: 163px auto 87.80px;
     }
+}
+
+/* Errors */
+
+.display-none {
+    display: none;
+}
+
+.bill>div,
+.number-of-people>div {
+    display: flex;
+    justify-content: space-between;
 }

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
 </head>
 
 <body>
@@ -23,7 +23,10 @@
     <main>
       <div>
         <div class="bill input-block">
-          <label class="text-preset-5 text-grey-500" for="bill">Bill</label>
+          <div>
+            <label class="text-preset-5 text-grey-500" for="bill">Bill</label>
+            <p class="display-none text-preset-5 text-orange-400">Can’t be zero</p>
+          </div>
           <input class="text-preset-5 text-green-900" id="bill" placeholder="0" type="number" name="bill">
         </div>
 
@@ -35,12 +38,15 @@
             <button class="btn selected" id="fifteenth-percent" type="button">15%</button>
             <button class="btn" id="twentyfive-percent" type="button">25%</button>
             <button class="btn" id="fifty-percent" type="button">50%</button>
-            <input class="text-preset-3 text-grey-500 btn" id="custom-percent" type="text" placeholder="Custom">
+            <input class="text-preset-3 text-grey-500 btn" id="custom-percent" type="number" placeholder="Custom">
           </div>
         </div>
 
         <div class="number-of-people input-block">
-          <label class="text-preset-5 text-grey-500" for="amount-of-people">Number Of People</label>
+          <div>
+            <label class="text-preset-5 text-grey-500" for="amount-of-people">Number Of People</label>
+            <p class="display-none text-preset-5 text-orange-400">Can’t be zero</p>
+          </div>
           <input class="text-preset-5 text-green-900" type="number" name="people" id="amount-of-people" placeholder="0">
         </div>
       </div>
