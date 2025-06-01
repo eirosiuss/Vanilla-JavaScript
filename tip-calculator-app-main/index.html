@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
     rel="stylesheet">
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -21,39 +21,46 @@
 
   <div class="container">
     <main>
+      <div>
+        <div class="bill input-block">
+          <label class="text-preset-5 text-grey-500" for="bill">Bill</label>
+          <input class="text-preset-5 text-green-900" id="bill" placeholder="0" type="number" name="bill">
+        </div>
 
-      <div class="bill">
-        <label class="text-preset-5 text-grey-500" for="bill">Bill</label>
-        <input class="text-preset-5 text-green-900" id="bill" placeholder="$" type="number" name="bill" value=0>
-      </div>
+        <div class="tip">
+          <p class="text-preset-5 text-grey-500">Select Tip %</p>
+          <div class="tip-percentage">
+            <button class="btn" id="five-percent" type="button">5%</button>
+            <button class="btn" id="ten-percent" type="button">10%</button>
+            <button class="btn selected" id="fifteenth-percent" type="button">15%</button>
+            <button class="btn" id="twentyfive-percent" type="button">25%</button>
+            <button class="btn" id="fifty-percent" type="button">50%</button>
+            <input class="text-preset-3 text-grey-500 btn" id="custom-percent" type="text" placeholder="Custom">
+          </div>
+        </div>
 
-      <div class="tip">
-        <p class="text-preset-5">Select Tip %</p>
-        <div class="tip-percentage">
-          <button id="five-percent" type="button">5%</button>
-          <button id="ten-percent" type="button">10%</button>
-          <button id="fifteenth-percent" type="button">15%</button>
-          <button id="twentyfive-percent" type="button">25%</button>
-          <button id="fifty-percent" type="button">50%</button>
-          <input class=" text-preset-3 text-grey-500" id="custom-percent" type="text" value="Custom">
+        <div class="number-of-people input-block">
+          <label class="text-preset-5 text-grey-500" for="amount-of-people">Number Of People</label>
+          <input class="text-preset-5 text-green-900" type="number" name="people" id="amount-of-people" placeholder="0">
         </div>
       </div>
 
-      <div class="number-of-people">
-        <label class="text-preset-5 text-grey-500" for="people">Number Of People</label>
-        <input class="text-preset-5 text-green-900" type="number" name="people" id="amount-of-people" value=0>
-      </div>
+      <div>
+        <div class="calculations">
+          <div>
 
-      <div class="calculations">
-        <div>
-          <p class="text-preset-5 text-white">Tip Amount <span class="text-preset-6 text-grey-400">/ person</span></p>
-          <p id="tip-amount">$0.00</p>
+            <div>
+              <p class="text-preset-5 text-white">Tip Amount <span class="text-preset-6 text-grey-400">/ person</span>
+              </p>
+              <p class="text-preset-1 text-green-400" id="tip-amount">$0.00</p>
+            </div>
+            <div>
+              <p class="text-preset-5 text-white">Total <span class="text-preset-6 text-grey-400">/ person</span></p>
+              <p class="text-preset-1 text-green-400" id="total">$0.00</p>
+            </div>
+          </div>
+          <button class="reset-btn uppercase text-green-800" id="reset" type="button">Reset</button>
         </div>
-        <div>
-          <p class="text-preset-5 text-white">Total <span class="text-preset-6 text-grey-400">/ person</span></p>
-          <p id="total">$0.00</p>
-        </div>
-        <button id="reset" type="button">Reset</button>
       </div>
     </main>
   </div>
