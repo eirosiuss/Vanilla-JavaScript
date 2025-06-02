@@ -6,14 +6,29 @@ const resultTipPerson = document.getElementById('tip-amount')
 const resultTipTotal = document.getElementById('total')
 
 const tipAmount = document.querySelectorAll('.btn')
+
+const customTipAmount = document.getElementById('custom-percent')
+console.log(customTipAmount);
+
 const billAmount = document.getElementById('bill')
 const peopleAmount = document.getElementById('amount-of-people')
 
+
+const updateTipValue  = () => customTipAmount.valueAsNumber
+
+customTipAmount.addEventListener('input', updateTipValue)
+
 const handleCalculations = () => {
+    const customPercent = updateTipValue() / 100
+    
+    let totalTip = customPercent * handleChange()
+    console.log(totalTip);
+
+
     tipAmount.forEach(element => {
         element.addEventListener('click', () => {
             const percent = parseInt(element.textContent.slice(0, -1)) / 100
-            const totalValue = percent * handleChange()
+            totalTip = percent * handleChange()
 
             let isValid = true
 
@@ -25,8 +40,10 @@ const handleCalculations = () => {
                 document.querySelector('.selected').classList.remove('selected')
                 element.classList.add('selected')
 
-                resultTipTotal.textContent = '$' + totalValue
-                resultTipPerson.textContent = '$' + totalValue / peopleAmount.valueAsNumber
+                resetBtn.classList.add('filled')
+
+                resultTipTotal.textContent = '$' + totalTip
+                resultTipPerson.textContent = '$' + totalTip / peopleAmount.valueAsNumber
             } else {
                 renderError()
             }
@@ -39,16 +56,18 @@ const errorMessage = document.querySelectorAll('.display-none')
 
 const handleChange = () => billAmount.valueAsNumber
 
-inputs.forEach((element, index) => {
-    element.addEventListener('input', () => {
-        errorMessage[index].style.display = 'none'
+const clearError = () => {
+    inputs.forEach((element, index) => {
+        element.addEventListener('input', () => {
+            errorMessage[index].style.display = 'none'
+        })
     })
-})
+}
 
 const renderError = () => {
     inputs.forEach((element, index) => {
 
-        if (element.value.trim() === '') {
+        if (element.value.trim() === '' || parseInt(element.value.trim()) === 0 || element.value.trim() === NaN) {
             errorMessage[index].style.display = 'block'
         }
     })
@@ -67,18 +86,24 @@ const resetCalculations = () => {
         errorMessage.forEach(element => {
             element.style.display = 'none'
         })
+        resetBtn.classList.remove('filled')
+        billAmount.focus()
     })
 }
 
 const dataIsValid = () => {
     let valid = true
     inputs.forEach(element => {
-        if (element.value.trim() === '') {
-            valid = false;
+        if (element.value.trim() === '' || parseInt(element.value.trim()) === 0 || isNaN(element.value.trim())) {
+            if (valid) {
+                element.focus()
+            }
+            valid = false
         }
     })
     return valid
 }
 
+clearError()
 handleCalculations()
 resetCalculations()
