@@ -269,7 +269,8 @@ textarea:not([rows]) {
 
 /* Buttons */
 .btn,
-.btn-custom {
+.btn-custom,
+.btn-enter {
     width: 100%;
     height: 48px;
     text-align: center;
@@ -283,14 +284,17 @@ textarea:not([rows]) {
     letter-spacing: var(--ls-0);
 }
 
+.selected {
+
+}
+
 .btn.selected,
-.btn-custom {
+.btn-custom.selected {
     background-color: rgb(var(--clr-green-400));
     color: rgb(var(--clr-green-900));
 }
 
-.btn:active,
-.btn-custom {
+.btn:active {
     background-color: rgb(var(--clr-green-200));
     color: rgb(var(--clr-green-900));
 }
@@ -314,7 +318,8 @@ textarea:not([rows]) {
     border-radius: 5px;
 }
 
-.reset-btn:active {
+.reset-btn:active,
+.btn-enter:active {
     background-color: rgb(var(--clr-grey-200));
     color: rgb(var(--clr-green-900))
 }
@@ -322,6 +327,11 @@ textarea:not([rows]) {
 .reset-btn.filled {
     background-color: rgb(var(--clr-green-400));
     color: rgb(var(--clr-green-900))
+}
+
+.btn-enter {
+    display: none;
+    background-color: rgb(var(--clr-orange-400))
 }
 
 /* Inputs */
@@ -380,9 +390,17 @@ input[type=number] {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.btn-enter {
+    grid-column: 2;
+}
+
 @media (min-width: 36em) {
     .tip-percentage {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .btn-enter {
+        grid-column: 3;
     }
 }
 
