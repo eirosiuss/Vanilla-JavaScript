@@ -2,8 +2,8 @@
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/input_event
 
-const resultTipPerson = document.getElementById('tip-amount')
-const resultTipTotal = document.getElementById('total')
+const resultTipTotal = document.getElementById('tip-amount')
+const resultBillTotal = document.getElementById('total')
 
 const tipAmount = document.querySelectorAll('.btn')
 
@@ -23,12 +23,14 @@ customTipAmount.addEventListener('input', (e) => {
 
 const startCalcBtn = document.querySelector('.btn-enter')
 
-let totalTip
+let totalBill
+let tipPerPerson
 
 startCalcBtn.addEventListener('click', () => {
 
-    const customPercent = handleTipChange() / 100
-    totalTip = customPercent * handleBillChange()
+    tipPerPerson = handleTipChange() * handleBillChange() / 100
+
+    totalBill = tipPerPerson + handleBillChange()
 
     let isValid = true
 
@@ -37,7 +39,7 @@ startCalcBtn.addEventListener('click', () => {
     }
 
     if (isValid) {
-        document.querySelector('.selected').classList.remove('selected')
+        tipAmount.forEach(btn => btn.classList.remove('selected'));
         customTipAmount.classList.add('selected')
 
         renderSuccess()
@@ -51,8 +53,10 @@ startCalcBtn.addEventListener('click', () => {
 const handleCalculations = () => {
     tipAmount.forEach(element => {
         element.addEventListener('click', () => {
-            const percent = parseInt(element.textContent.slice(0, -1)) / 100
-            totalTip = percent * handleBillChange()
+
+            tipPerPerson = parseInt(element.textContent.slice(0, -1)) * handleBillChange() / 100
+
+            totalBill = tipPerPerson + handleBillChange()
 
             let isValid = true
 
@@ -61,9 +65,10 @@ const handleCalculations = () => {
             }
 
             if (isValid) {
-                document.querySelector('.selected').classList.remove('selected')
-                element.classList.add('selected')
-
+                tipAmount.forEach(btn => btn.classList.remove('selected'));
+                element.classList.add('selected');
+                customTipAmount.classList.remove('selected')
+                
                 renderSuccess()
             } else {
                 renderError()
@@ -76,8 +81,9 @@ const renderSuccess = () => {
     resetBtn.classList.add('filled')
     startCalcBtn.style.display = 'none'
 
-    resultTipTotal.textContent = '$' + (totalTip).toFixed(2)
-    resultTipPerson.textContent = '$' + (totalTip / peopleAmount.valueAsNumber).toFixed(2)
+    resultTipTotal.textContent = '$' + (tipPerPerson / peopleAmount.valueAsNumber).toFixed(2)
+
+    resultBillTotal.textContent = '$' + (totalBill / peopleAmount.valueAsNumber).toFixed(2)
 }
 
 const inputs = document.querySelectorAll('#bill, #amount-of-people, #customTipAmount')
@@ -109,7 +115,7 @@ const resetCalculations = () => {
         })
 
         resultTipTotal.textContent = '$0.00'
-        resultTipPerson.textContent = '$0.00'
+        resultBillTotal.textContent = '$0.00'
         errorMessage.forEach(element => {
             element.style.display = 'none'
         })

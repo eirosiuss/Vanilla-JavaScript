@@ -284,10 +284,6 @@ textarea:not([rows]) {
     letter-spacing: var(--ls-0);
 }
 
-.selected {
-
-}
-
 .btn.selected,
 .btn-custom.selected {
     background-color: rgb(var(--clr-green-400));
