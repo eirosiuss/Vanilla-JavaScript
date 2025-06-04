@@ -1,0 +1,267 @@
+/* =============================================== */
+/* Custom properties */
+:root {
+    /* Font */
+    --font-base: 1rem;
+    --ff-jetbrains: "JetBrains Mono", monospace;
+
+    /* Colors: Base */
+    --clr-white: 255, 255, 255;
+    --clr-black: 0, 0, 0;
+
+    /* Colors: Grey */
+    --clr-grey-950: 8, 7, 11;
+    --clr-grey-900: 20, 19, 27;
+    --clr-grey-850: 24, 23, 31;
+    --clr-grey-800: 36, 35, 44;
+    --clr-grey-700: 84, 83, 91;
+    --clr-grey-600: 128, 124, 146;
+    --clr-grey-200: 230, 229, 234;
+
+    /* Colors: Accent */
+    --clr-green-200: 164, 255, 175;
+    --clr-yellow-300: 248, 205, 101;
+    --clr-orange-400: 251, 124, 88;
+    --clr-red-500: 246, 74, 74;
+
+    /* Gradients */
+    --gradient-1-start: 20, 19, 27;
+    /* #14131B */
+    --gradient-1-end: 8, 7, 11;
+    /* #08070B */
+
+    /* Font sizes */
+    --fs-32: 2rem;
+    --fs-24: 1.5rem;
+    --fs-18: 1.125rem;
+    --fs-16: 1rem;
+
+    /* Line heights */
+    --lh-42: 2.625rem;
+    --lh-32: 2rem;
+    --lh-24: 1.5rem;
+    --lh-20: 1.25rem;
+
+    /* Letter spacing */
+    --ls-0: 0px;
+}
+
+/* @media (min-width: 36em) {
+    :root {
+        --fs-48: 48px;
+        --lh-71: 71px;
+
+    }
+} */
+
+/* @media (min-width: 48em) {
+    :root {
+        --fs-48: 48px;
+    }
+} */
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-size: var(--font-base);
+    font-family: var(--ff-jetbrains);
+    /* background-color: rgb(var(--clr-grey-950)) */
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.container {
+    margin: 0 auto;
+    max-width: 540px;
+}
+
+/* =============================================== */
+/* Text Presets */
+
+.text-preset-1 {
+    font-family: var(--ff-jetbrains);
+    font-size: var(--fs-32);
+    line-height: var(--lh-42);
+    letter-spacing: var(--ls-0);
+    font-weight: 700;
+}
+
+.text-preset-2 {
+    font-family: var(--ff-jetbrains);
+    font-size: var(--fs-24);
+    line-height: var(--lh-32);
+    letter-spacing: var(--ls-0);
+    font-weight: 700;
+}
+
+.text-preset-3 {
+    font-family: var(--ff-jetbrains);
+    font-size: var(--fs-18);
+    line-height: var(--lh-24);
+    letter-spacing: var(--ls-0);
+    font-weight: 700;
+}
+
+.text-preset-4 {
+    font-family: var(--ff-jetbrains);
+    font-size: var(--fs-16);
+    line-height: var(--lh-20);
+    letter-spacing: var(--ls-0);
+    font-weight: 700;
+}
+
+/* =============================================== */
+/* Utility classes for text color */
+
+.text-white {
+    color: rgb(255, 255, 255);
+}
+
+.text-black {
+    color: rgb(0, 0, 0);
+}
+
+.text-grey-950 {
+    color: rgb(8, 7, 11);
+}
+
+.text-grey-900 {
+    color: rgb(20, 19, 27);
+}
+
+.text-grey-850 {
+    color: rgb(24, 23, 31);
+}
+
+.text-grey-800 {
+    color: rgb(36, 35, 44);
+}
+
+.text-grey-700 {
+    color: rgb(84, 83, 91);
+}
+
+.text-grey-600 {
+    color: rgb(128, 124, 146);
+}
+
+.text-grey-200 {
+    color: rgb(230, 229, 234);
+}
+
+.text-green-200 {
+    color: rgb(164, 255, 175);
+}
+
+.text-yellow-300 {
+    color: rgb(248, 205, 101);
+}
+
+.text-orange-400 {
+    color: rgb(251, 124, 88);
+}
+
+.text-red-500 {
+    color: rgb(246, 74, 74);
+}
+
+
+/* =============================================== */
+/* Gradient utility */
+
+/* .bg-gradient-1 {
+  background: linear-gradient(to right, 
+    rgb(var(--gradient-1-start)), 
+    rgb(var(--gradient-1-end))
+  );
+} */
+
+/* =============================================== */
+/* Components */
+
+.slidecontainer {
+  width: 50%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+}
