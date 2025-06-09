@@ -1,8 +1,26 @@
-let slider = document.getElementById("myRange");
-let value = document.getElementById("value");
-value.innerHTML = slider.value; // Display the default slider value
+const slider = document.getElementById('range')
+const value = document.getElementById('value')
+value.textContent = slider.value
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  value.innerHTML = this.value;
-} 
+const handleLengthChange = (e) => value.textContent = e.target.value
+
+slider.addEventListener('input', (e) => handleLengthChange(e))
+
+const password = document.getElementById('password')
+const generateBtn = document.getElementById('generate')
+
+
+const handleGeneratePassword = () => {
+  const length = slider.value
+  const lowercaseSet = "abcdefghijklmnopqrstuvwxyz"
+  let passwordValue = ''
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * lowercaseSet.length)
+    passwordValue += lowercaseSet[randomIndex]
+  }
+
+  password.value = passwordValue
+}
+
+generateBtn.addEventListener('click', handleGeneratePassword)
