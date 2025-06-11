@@ -187,7 +187,7 @@ textarea:not([rows]) {
 }
 
 /* =============================================== */
-/* Utility classes for text color */
+/* Text color */
 
 .text-white {
     color: rgb(255, 255, 255);
@@ -239,6 +239,10 @@ textarea:not([rows]) {
 
 .text-red-500 {
     color: rgb(246, 74, 74);
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 
