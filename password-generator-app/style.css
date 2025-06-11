@@ -275,6 +275,7 @@ h1 {
 }
 
 .password-container {
+    display: flex;
     background-color: rgb(var(--clr-grey-800));
     padding: 16px;
     margin: 16px 0;
@@ -284,6 +285,66 @@ h1 {
     background-color: rgb(var(--clr-grey-800));
 }
 
+.password-container input:focus-visible {
+    outline: none;
+}
+
 .password-container path:hover {
     fill: rgb(var(--clr-white));
+}
+
+.slide-container {
+    background-color: rgb(var(--clr-grey-800));
+    padding: 0 16px;
+}
+
+.slide-container p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0 8px;
+}
+
+.slide-container input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    background-color: rgb(var(--clr-grey-850));
+    margin: 10px 0;
+}
+
+.slide-container input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgb(var(--clr-grey-200));
+}
+
+.slide-container input::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgb(var(--clr-grey-200));
+    border: none;
+}
+
+.checkbox-container {
+    padding: 32px 16px;
+    background-color: rgb(var(--clr-grey-800));
+}
+
+.checkbox-container input {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgb(var(--clr-grey-800));
+    width: 20px;
+    height: 20px;
+    border: 2px rgb(var(--clr-grey-200)) solid;
+}
+
+.checkbox-container input:checked {
+  background-color: rgb(var(--clr-green-200));
+  border-color: rgb(var(--clr-green-200));
 }
