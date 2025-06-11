@@ -11,6 +11,9 @@ const lowercaseCheckbox = document.getElementById('lowercase')
 const uppercaseCheckbox = document.getElementById('uppercase')
 const numbersCheckbox = document.getElementById('numbers')
 const symbolsCheckbox = document.getElementById('symbols')
+const strengthIndicator = document.querySelector('.strength-container span')
+const copyText = document.querySelector('.password-container span')
+const copyBtn = document.querySelector('.password-container button')
 
 const handleGeneratePassword = () => {
   const passwordLength = slider.value
@@ -61,7 +64,14 @@ const handleGeneratePassword = () => {
   }
 }
 
-const strengthIndicator = document.querySelector('.strength-container span')
+copyBtn.addEventListener('click', () => {
+  if (password.value) {
+    navigator.clipboard.writeText(password.value)
+    copyText.textContent = 'Copied!'
+  } else {
+    alert('Please generate a password first.')
+  }
+})
 
 generateBtn.addEventListener('click', () => {
   if (slider.value < 1 || slider.value > 30) {
@@ -73,5 +83,7 @@ generateBtn.addEventListener('click', () => {
     return
   }
 
+  copyText.textContent = ''
+  password.classList.add('text-grey-200')
   handleGeneratePassword()
 })
