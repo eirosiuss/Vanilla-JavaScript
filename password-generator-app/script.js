@@ -53,15 +53,32 @@ const handleGeneratePassword = () => {
   }
   password.value = passwordValue.join('')
 
+  level = 0
   if (password.value.length <= 5 || selectedSets.length === 1) {
     strengthIndicator.textContent = 'Too Weak!'
+    level = 1
   } else if ((password.value.length <= 10 && password.value.length > 5) || selectedSets.length === 2) {
     strengthIndicator.textContent = 'Weak'
+    level = 2
   } else if ((password.value.length <= 15 && password.value.length > 10) || selectedSets.length === 3) {
     strengthIndicator.textContent = 'Medium'
+    level = 3
   } else if (password.value.length > 15 || selectedSets.length === 4) {
     strengthIndicator.textContent = 'Strong'
+    level = 4
   }
+
+  const strengthIndicatorBar = document.querySelectorAll('.strength-bar-container div')
+  const strengthClasses = ['too-weak', 'weak', 'medium', 'strong']
+
+  strengthIndicatorBar.forEach((bar, index) => {
+    bar.classList.remove(...strengthClasses)
+      bar.style.border = '2px solid rgb(var(--clr-grey-200))'
+    if (index < level) {
+      bar.classList.add(strengthClasses[level - 1])
+      bar.style.border = 'none'
+    }
+  })
 }
 
 copyBtn.addEventListener('click', () => {
