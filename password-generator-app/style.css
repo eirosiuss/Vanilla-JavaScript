@@ -206,26 +206,6 @@ textarea:not([rows]) {
     font-weight: 700;
 }
 
-/* @media (min-width: 36em) {
-    :root {
-        .text-preset-4 {
-            font-family: var(--ff-jetbrains);
-            font-size: var(--fs-24);
-            line-height: var(--lh-32);
-            letter-spacing: var(--ls-0);
-            font-weight: 700;
-        }
-
-        .text-preset-2 {
-            font-family: var(--ff-jetbrains);
-            font-size: var(--fs-32);
-            line-height: var(--lh-42);
-            letter-spacing: var(--ls-0);
-            font-weight: 700;
-        }
-    }
-} */
-
 /* =============================================== */
 /* Text color */
 
@@ -309,6 +289,16 @@ h1 {
     margin-block: 16px;
 }
 
+@media (min-width: 36em) {
+    :root {
+        .password-container {
+            padding: 19px 32px;
+            margin-block: 32px 24px;
+        }
+    }
+}
+
+
 .password-container input {
     background-color: rgb(var(--clr-grey-800));
     width: 100%;
@@ -337,6 +327,14 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 16px 0 8px;
+}
+
+@media (min-width: 36em) {
+    :root {
+        .slide-container p {
+            padding: 24px 0 16px;
+        }
+    }
 }
 
 .slide-container input {
@@ -405,6 +403,14 @@ h1 {
     padding: 14px 16px;
 }
 
+@media (min-width: 36em) {
+    :root {
+        .strength-container {
+            padding: 22px 31px;
+        }
+    }
+}
+
 .strength-container p {
     margin: auto 0;
 }
@@ -447,6 +453,17 @@ h1 {
     background-color: rgb(var(--clr-green-200));
     width: 100%;
     margin-block: 16px;
+}
+
+@media (min-width: 36em) {
+    :root {
+.generate-btn {
+    padding-block: 20.5px;
+    background-color: rgb(var(--clr-green-200));
+    width: 100%;
+    margin-block:32px 41px;
+}
+    }
 }
 
 .generate-btn:hover {
