@@ -155,11 +155,11 @@ textarea:not([rows]) {
     :root {
         .container {
             margin: 0 auto;
-            padding: 133px 114px 0;
+            max-width: 540px;
+            padding: 65px 0;
         }
     }
 }
-
 
 @media (min-width: 50em) {
     :root {
