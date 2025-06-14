@@ -1,0 +1,272 @@
+/* =============================================== */
+/* Custom Properties */
+:root {
+    --ff-rubik: "Rubik", sans-serif;
+    --font-base: 16px;
+
+    --lh-100: 1;
+    --lh-120: 1.2;
+    --lh-150: 1.5;
+
+    --fs-14: 0.875rem;
+    --fs-18: 1.125rem;
+    --fs-20: 1.25rem;
+    --fs-24: 1.5rem;
+    --fs-28: 1.75rem;
+    --fs-40: 2.5rem;
+    --fs-88: 5.5rem;
+    --fs-144: 9rem;
+
+    /* Colors (RGB) */
+    --clr-white: 255, 255, 255;
+    --clr-black: 0, 0, 0;
+    --clr-grey-500: 98, 108, 127;
+    --clr-grey-50: 244, 246, 250;
+
+    --clr-blue-950: 45, 57, 73;
+    --clr-blue-900: 49, 62, 81;
+    --clr-blue-850: 59, 77, 102;
+    --clr-blue-500: 48, 106, 255;
+    --clr-blue-300: 171, 193, 225;
+    --clr-blue-100: 237, 241, 249;
+    --clr-blue-50: 235, 240, 255;
+
+    --clr-green-500: 47, 216, 135;
+    --clr-green-100: 224, 253, 239;
+
+    --clr-purple-600: 167, 41, 245;
+    --clr-purple-100: 246, 231, 255;
+
+    --clr-orange-400: 255, 126, 53;
+    --clr-orange-50: 255, 245, 237;
+
+    --clr-red-500: 238, 84, 84;
+}
+
+/* @media (min-width: 36em) {
+    :root {
+        --fs-48: 48px;
+        --lh-71: 71px;
+
+    }
+} */
+
+/* @media (min-width: 48em) {
+    :root {
+        --fs-48: 48px;
+    }
+} */
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-size: var(--font-base);
+    font-family: var(--ff-rubik);
+    background-color: rgb(var(--clr-grey-50));
+    letter-spacing: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.container {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.text-preset-1 {
+    font-weight: 500;
+    font-size: var(--fs-88);
+    line-height: var(--lh-100);
+}
+
+.text-preset-2-medium {
+    font-weight: 500;
+    font-size: var(--fs-40);
+    line-height: var(--lh-100);
+}
+
+.text-preset-3 {
+    font-weight: 500;
+    font-size: var(--fs-20);
+    line-height: var(--lh-120);
+}
+
+.text-preset-5-italic {
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--fs-14);
+    line-height: var(--lh-150);
+}
+
+@media (min-width: 36em) {
+    .text-preset-1 {
+        font-size: var(--fs-144);
+    }
+
+    .text-preset-2-medium {
+        font-size: 4rem;
+        /* 64px */
+    }
+
+    .text-preset-3 {
+        font-size: 2.25rem;
+        /* 36px */
+    }
+
+    .text-preset-5-italic {
+        font-size: var(--fs-28);
+        line-height: var(--lh-100);
+    }
+}
+
+.text-white {
+    color: rgb(var(--clr-white));
+}
+
+.text-black {
+    color: rgb(var(--clr-black));
+}
+
+.text-grey-500 {
+    color: rgb(var(--clr-grey-500));
+}
+
+.text-grey-50 {
+    color: rgb(var(--clr-grey-50));
+}
+
+.text-blue-950 {
+    color: rgb(var(--clr-blue-950));
+}
+
+.text-blue-900 {
+    color: rgb(var(--clr-blue-900));
+}
+
+.text-blue-850 {
+    color: rgb(var(--clr-blue-850));
+}
+
+.text-blue-500 {
+    color: rgb(var(--clr-blue-500));
+}
+
+.text-blue-300 {
+    color: rgb(var(--clr-blue-300));
+}
+
+.text-blue-100 {
+    color: rgb(var(--clr-blue-100));
+}
+
+.text-blue-50 {
+    color: rgb(var(--clr-blue-50));
+}
+
+.text-green-500 {
+    color: rgb(var(--clr-green-500));
+}
+
+.text-green-100 {
+    color: rgb(var(--clr-green-100));
+}
+
+.text-purple-600 {
+    color: rgb(var(--clr-purple-600));
+}
+
+.text-purple-100 {
+    color: rgb(var(--clr-purple-100));
+}
+
+.text-orange-400 {
+    color: rgb(var(--clr-orange-400));
+}
+
+.text-orange-50 {
+    color: rgb(var(--clr-orange-50));
+}
+
+.text-red-500 {
+    color: rgb(var(--clr-red-500));
+}
+
+/* =============================================== */
+/* Components */
+
