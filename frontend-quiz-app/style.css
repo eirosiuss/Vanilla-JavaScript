@@ -149,49 +149,94 @@ textarea:not([rows]) {
     max-width: 100%;
 }
 
-.text-preset-1 {
+.text-present-1 {
     font-weight: 500;
     font-size: var(--fs-88);
     line-height: var(--lh-100);
 }
 
-.text-preset-2-medium {
+.text-present-2-medium {
     font-weight: 500;
     font-size: var(--fs-40);
     line-height: var(--lh-100);
 }
 
-.text-preset-3 {
+.text-present-2-light {
+    font-weight: 300;
+    font-size: var(--fs-40);
+    line-height: var(--lh-100);
+}
+
+.text-present-3 {
     font-weight: 500;
     font-size: var(--fs-20);
     line-height: var(--lh-120);
 }
 
-.text-preset-5-italic {
+.text-present-4 {
+    font-weight: 500;
+    font-size: var(--fs-18);
+    line-height: var(--lh-100);
+}
+
+.text-present-5-italic {
     font-style: italic;
     font-weight: 400;
     font-size: var(--fs-14);
     line-height: var(--lh-150);
 }
 
+.text-present-5-medium {
+    font-weight: 500;
+    font-size: var(--fs-24);
+    line-height: var(--lh-150);
+}
+
+.text-present-5-regular {
+    font-weight: 400;
+    font-size: var(--fs-24);
+    line-height: var(--lh-150);
+}
+
+.text-present-6 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--fs-20);
+    line-height: var(--lh-150);
+}
+
 @media (min-width: 36em) {
-    .text-preset-1 {
+    .text-present-1 {
         font-size: var(--fs-144);
     }
 
-    .text-preset-2-medium {
-        font-size: 4rem;
-        /* 64px */
+    .text-present-2-medium,
+    .text-present-2-light {
+        font-size: var(--fs-64);
     }
 
-    .text-preset-3 {
-        font-size: 2.25rem;
-        /* 36px */
+    .text-present-3 {
+        font-size: var(--fs-36);
     }
 
-    .text-preset-5-italic {
+    .text-present-4 {
+        font-size: var(--fs-24);
+    }
+
+    .text-present-5-italic {
         font-size: var(--fs-28);
         line-height: var(--lh-100);
+    }
+
+    .text-present-5-medium,
+    .text-present-5-regular {
+        font-size: var(--fs-24);
+        line-height: var(--lh-150);
+    }
+
+    .text-present-6 {
+        font-size: var(--fs-20);
+        line-height: var(--lh-150);
     }
 }
 
@@ -270,3 +315,34 @@ textarea:not([rows]) {
 /* =============================================== */
 /* Components */
 
+.main-header {
+    padding: 32px 24px 40px;
+}
+
+.main-header h1 {
+    padding-bottom: 16px;
+}
+
+.subject-header {
+    padding: 0 24px;
+}
+
+.subject-header > div {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.subject-header div svg:nth-child(1) {
+    background-color: rgb(var(--clr-orange-50));
+
+}
+
+svg {
+    border-radius: 6px;
+    /* background-color: rgb(var(--clr-orange-50)); */
+}
+
+.subject-header h2 {
+
+}
