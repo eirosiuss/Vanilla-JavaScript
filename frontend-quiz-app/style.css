@@ -443,14 +443,23 @@ textarea:not([rows]) {
     }
 }
 
-.subject-header>div {
+.subject-header>div button {
+    padding: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     border-radius: 12px;
     background-color: rgb(var(--clr-white));
+    box-shadow: 0 16px 40px rgba(143, 160, 193, 0.14);
 }
 
-.subject-header>div:not(:last-child) {
+.subject-header>div button:hover {
+    background-color: rgb(var(--clr-blue-850));
+    color: rgb(var(--clr-white));
+    box-shadow: 0 16px 40px rgba(49, 62, 81, 0.14);
+}
+
+.subject-header>div:not(:last-child) button {
     margin-bottom: 16px;
 }
 
@@ -460,7 +469,7 @@ textarea:not([rows]) {
 }
 
 @media (min-width: 36em) {
-    .subject-header>div:not(:last-child) {
+    .subject-header>div:not(:last-child) button {
         margin-bottom: 24px;
     }
 
