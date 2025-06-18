@@ -100,8 +100,7 @@ ol {
     padding: 0;
 }
 
-ul,
-ol {
+ul {
     list-style: none;
 }
 
@@ -520,10 +519,8 @@ main:after {
 
 @media (min-width: 60em) {
     main {
-        display: flex;
         max-width: 1157px;
         margin: 0 auto;
-        flex-wrap: wrap;
         padding-bottom: 272px;
     }
 
@@ -548,6 +545,10 @@ main:after {
         left: -683px;
     }
 
+    .header {
+        display: flex;
+    }
+
     .main-header {
         padding: 0;
         flex: 1;
@@ -559,3 +560,31 @@ main:after {
         max-width: 564px;
     }
 }
+
+.question-bar-progress {
+    margin-top: 20px;
+    height: 30px;
+    background: rgb(234, 234, 234);
+}
+
+.question-bar-progress .question-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: royalblue;
+    transition: 0.2s all;
+}
+
+.answers-container label {
+    display: block;
+    cursor: pointer;
+}
+
+.answers-container input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.active {
+            background: blue;
+        }
