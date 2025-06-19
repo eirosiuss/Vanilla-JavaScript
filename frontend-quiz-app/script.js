@@ -72,9 +72,11 @@ function populateHtml(obj) {
     const answersContainer = document.createElement('div');
     answersContainer.classList.add('answers-container');
     main.appendChild(answersContainer);
-    // console.log(questions[currentIndex].options);
+
+    const submitBtn = document.createElement('button');
+    submitBtn.textContent = 'Submit Answer';
+
     questions[currentIndex].options.forEach((option, index) => {
-        // console.log(index);
 
         const answerLabel = document.createElement('label');
 
@@ -85,6 +87,7 @@ function populateHtml(obj) {
 
         const answerInput = document.createElement('input');
         answerInput.type = 'radio';
+        answerInput.name = 'answer';
         answerInput.value = option;
 
         const textSpan = document.createElement('span');
@@ -95,59 +98,36 @@ function populateHtml(obj) {
         answerLabel.appendChild(textSpan);
         answersContainer.appendChild(answerLabel);
 
-        const answerLabels = document.querySelectorAll('.answers-container label');
+        submitBtn.addEventListener('click', () => {
+            // console.log(answerInput.checked);
 
-        answerLabels.forEach(label => {
-            label.addEventListener('click', () => {
-                label.classList.add('active');
-            });
-        })
+
+            
+
+            // if (answerInput.checked) {
+            //     console.log(answerInput.value, questions[currentIndex].answer);
+                
+            // }
+
+
+        });
     })
 
-    const submitBtn = document.createElement('button');
-    submitBtn.textContent = 'Submit Answer';
     answersContainer.appendChild(submitBtn);
 
+    const answerLabels = document.querySelectorAll('.answers-container label');
 
-    // submitBtn.addEventListener('click', () => {
-    //     const selectedOption = document.querySelector('.answers-container input:checked');
-    //     if (selectedOption) {
-    //         const answer = selectedOption.value;
+    answerLabels.forEach(label => {
+        label.addEventListener('click', () => {
+            // console.log(label);
+            document.querySelectorAll('.active').forEach(activeLabel => {
+                activeLabel.classList.remove('active')
+            });
+            label.classList.add('active');
+        });
+    })
 
-    //         if (answer === questions[currentIndex].answer) {
-    //             answerLabel.classList.add('correct');
-    //         } else {
-    //             answerLabel.classList.add('incorrect');
-    //         }
 
-    //         currentIndex++;
-    //         if (currentIndex < questions.length) {
-    //             questionTextProgress.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
-    //             questionH2.textContent = questions[currentIndex].question;
-    //             answersContainer.innerHTML = '';
-    //             questions[currentIndex].options.forEach((option, index) => {
-    //                 const answerLabel = document.createElement('label');
-    //                 const letter = String.fromCharCode(65 + index);
-    //                 const letterSpan = document.createElement('span');
-    //                 letterSpan.textContent = letter;
-
-    //                 const answerInput = document.createElement('input');
-    //                 answerInput.type = 'radio';
-    //                 answerInput.value = option;
-
-    //                 const textSpan = document.createElement('span');
-    //                 textSpan.textContent = option;
-
-    //                 answerLabel.appendChild(answerInput);
-    //                 answerLabel.appendChild(letterSpan);
-    //                 answerLabel.appendChild(textSpan);
-    //                 answersContainer.appendChild(answerLabel);
-    //             });
-    //             progressPercentage = (currentIndex + 1) / questions.length * 100;
-    //             questionBarFill.style.width = `${progressPercentage}%`;
-    //         }
-    //     }
-    // });
 }
 
 
