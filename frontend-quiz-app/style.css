@@ -575,7 +575,8 @@ main:after {
 }
 
 .answers-container label {
-    display: block;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -585,10 +586,18 @@ main:after {
 }
 
 .answers-container input {
-    /* display: none; */
+    display: none;
 }
 
 .active {
     border: 3px solid rgb(var(--clr-purple-600));
     border-radius: 24px;
+}
+
+.answers-container .correct {
+    border: 3px solid rgb(var(--clr-green-500));
+}
+
+.answers-container .incorrect {
+    border: 3px solid rgb(var(--clr-red-500));
 }
