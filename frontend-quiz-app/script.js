@@ -1,9 +1,12 @@
+let globalData
+
 async function populate() {
     const requestURL =
         "./data.json"
     const request = new Request(requestURL)
     const response = await fetch(request)
     const data = await response.json()
+    globalData = data
 
     populateStartMenu(data)
 
@@ -13,11 +16,12 @@ async function populate() {
     })
 }
 
+const wrapper = document.querySelector('.wrapper')
 const header = document.querySelector('.header')
 const main = document.querySelector('main')
+const cardH2 = document.querySelectorAll('.subject-header h2')
 
 function populateStartMenu(obj) {
-    const cardH2 = document.querySelectorAll('.subject-header h2')
     obj.quizzes.forEach((element, index) => {
         const title = element.title
         cardH2[index].textContent = title
@@ -33,95 +37,14 @@ submitBtn.textContent = 'Submit Answer';
 let currentIndex = 0;
 let correctAnswers = 0
 
-
-// function populateHtml(obj) {
-//     const htmlTest = obj.quizzes.find(test => test.title === 'HTML');
-//     const questions = htmlTest.questions;
-//     const subjectName = document.querySelector('.subject-name');
-//     subjectName.textContent = htmlTest.title;
-
-//     const questionContainer = document.createElement('div');
-//     questionContainer.classList.add('question-container');
-
-//     const questionTextProgress = document.createElement('p');
-//     questionTextProgress.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
-
-//     const questionH2 = document.createElement('h2');
-//     questionH2.textContent = questions[currentIndex].question;
-
-//     const questionBarProgress = document.createElement('div');
-//     questionBarProgress.classList.add('question-bar-progress');
-
-//     const questionBarFill = document.createElement('div');
-//     questionBarFill.classList.add('question-bar-fill');
-
-//     const answersContainer = document.createElement('div');
-//     answersContainer.classList.add('answers-container');
-
-//     questionContainer.appendChild(questionTextProgress);
-//     questionContainer.appendChild(questionH2);
-//     questionContainer.appendChild(questionBarProgress);
-//     questionBarProgress.appendChild(questionBarFill);
-//     main.appendChild(questionContainer);
-//     main.appendChild(answersContainer);
-
-//     let progressPercentage = 0;
-
-//     if (progressPercentage < 100) {
-//         progressPercentage = (currentIndex + 1) / questions.length * 100;
-//         questionBarFill.style.width = `${progressPercentage}%`;
-//     }
-
-
-//     questions[currentIndex].options.forEach((option, index) => {
-//         const answerLabel = document.createElement('label');
-//         const letter = String.fromCharCode(65 + index); // 65 = 'A'
-//         const letterSpan = document.createElement('span');
-//         letterSpan.textContent = letter;
-
-//         const answerInput = document.createElement('input');
-//         answerInput.type = 'radio';
-//         answerInput.name = 'answer';
-//         answerInput.value = option;
-
-//         const textParagraph = document.createElement('p');
-//         textParagraph.textContent = option;
-
-//         answerLabel.appendChild(answerInput);
-//         answerLabel.appendChild(letterSpan);
-//         answerLabel.appendChild(textParagraph);
-//         answersContainer.appendChild(answerLabel);
-//     })
-//     answersContainer.appendChild(submitBtn);
-//     submitBtnHandler(questions, currentIndex, answersContainer, questionContainer)
-
-
-//     const answerLabels = document.querySelectorAll('.answers-container label');
-//     answerLabels.forEach(label => {
-//         label.addEventListener('click', () => {
-
-//             clearError(answersContainer);
-
-//             document.querySelectorAll('.active').forEach(activeLabel => {
-//                 activeLabel.classList.remove('active')
-//             });
-//             label.classList.add('active');
-//         });
-//     })
-// }
-
 const quizContainer = document.createElement('div');
 const subjectName = document.querySelector('.subject-name');
-
 
 function populateHtml(obj) {
     const htmlTest = obj.quizzes.find(test => test.title === 'HTML');
     const questions = htmlTest.questions;
-    // const subjectName = document.querySelector('.subject-name');
     subjectName.textContent = htmlTest.title;
 
-
-    // const quizContainer = document.createElement('div');
     quizContainer.classList.add('quiz-container');
 
     const questionContainer = document.createElement('div');
@@ -148,7 +71,6 @@ function populateHtml(obj) {
     questionBarProgress.appendChild(questionBarFill);
     quizContainer.appendChild(questionContainer);
     quizContainer.appendChild(answersContainer);
-    // main.appendChild(quizContainer);
 
     let progressPercentage = ((currentIndex + 1) / questions.length) * 100;
     questionBarFill.style.width = `${progressPercentage}%`;
@@ -218,7 +140,6 @@ function populateHtml(obj) {
                 if (option === questions[currentIndex].answer) {
                     const correctLabel = document.querySelector(`.answers-container label:has(input[value="${option}"])`);
                     if (correctLabel) {
-                        correctLabel.classList.add('correct');
                         correctLabel.appendChild(iconCorrect);
                     }
                 }
@@ -237,17 +158,20 @@ function populateHtml(obj) {
                 populateHtml(obj);
             }
 
-            if (currentIndex === questions.length) {
+            if (currentIndex === 1) {
+                quizContainer.innerHTML = ''
                 quizContainer.remove()
-                const scoreHeader = document.createElement('div');
+                const scoreHeaderContainer = document.createElement('div');
                 const resultParagraph = document.createElement('h2');
                 resultParagraph.textContent = 'Quiz completed '
                 const resultSpan = document.createElement('span');
                 resultSpan.textContent = 'You scored...'
 
-                const scoreContainer = document.createElement('div');
+                const scoreResultContainer = document.createElement('div');
                 const subject = document.createElement('p')
                 subject.textContent = subjectName.textContent
+
+                const scoreContainer = document.createElement('div')
 
                 const points = document.createElement('p')
                 points.textContent = correctAnswers
@@ -255,20 +179,34 @@ function populateHtml(obj) {
                 const questionsCount = document.createElement('p')
                 questionsCount.textContent = 'out of ' + questions.length
 
+                const againBtn = document.createElement('button')
+                againBtn.textContent = 'Play Again'
+
                 resultParagraph.appendChild(resultSpan);
-                scoreHeader.appendChild(resultParagraph);
-                scoreContainer.appendChild(subject)
-                scoreContainer.appendChild(points)
-                scoreContainer.appendChild(questionsCount)
-                main.appendChild(scoreHeader);
+                scoreHeaderContainer.appendChild(resultParagraph);
+                scoreResultContainer.appendChild(subject)
+                scoreResultContainer.appendChild(points)
+                scoreResultContainer.appendChild(questionsCount)
+                scoreResultContainer.appendChild(againBtn)
+                scoreContainer.appendChild(scoreHeaderContainer)
+                scoreContainer.appendChild(scoreResultContainer)
                 main.appendChild(scoreContainer)
+
+                againBtn.addEventListener('click', () => {
+                    currentIndex = 0
+                    correctAnswers = 0
+                    scoreContainer.remove()
+                    main.append(header)
+                    populateStartMenu(globalData)
+
+                })
             };
         };
     }
+
+    main.appendChild(quizContainer);
+
 }
-
-main.appendChild(quizContainer);
-
 
 const clearError = (answersContainer) => {
     if (answersContainer.querySelector('.error-message')) {
