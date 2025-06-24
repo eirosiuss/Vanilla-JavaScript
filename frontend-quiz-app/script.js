@@ -1,5 +1,3 @@
-let globalData
-
 async function populate() {
     const requestURL =
         "./data.json"
@@ -14,12 +12,23 @@ async function populate() {
         header.remove()
         populateHtml(data)
     })
-}
 
-const wrapper = document.querySelector('.wrapper')
-const header = document.querySelector('.header')
-const main = document.querySelector('main')
-const cardH2 = document.querySelectorAll('.subject-header h2')
+    cssBtn.addEventListener('click', () => {
+        header.remove()
+        populateCss(data)
+    })
+
+    javaScriptBtn.addEventListener('click', () => {
+        header.remove()
+        populateJavaScript(data)
+    })
+
+    accessibilityBtn.addEventListener('click', () => {
+        header.remove()
+        populateAccessibility(data)
+    })
+
+}
 
 function populateStartMenu(obj) {
     obj.quizzes.forEach((element, index) => {
@@ -27,26 +36,150 @@ function populateStartMenu(obj) {
         cardH2[index].textContent = title
     })
 }
-
+// const wrapper = document.querySelector('.wrapper')
+const header = document.querySelector('.header')
+const main = document.querySelector('main')
+const cardH2 = document.querySelectorAll('.subject-header h2')
 const htmlBtn = document.getElementById('html')
 const cssBtn = document.getElementById('css')
 const javaScriptBtn = document.getElementById('java-script')
 const accessibilityBtn = document.getElementById('accessibility')
 let submitBtn = document.createElement('button');
-submitBtn.textContent = 'Submit Answer';
 let currentIndex = 0;
 let correctAnswers = 0
-
 const quizContainer = document.createElement('div');
+quizContainer.classList.add('quiz-container');
 const subjectName = document.querySelector('.subject-name');
+let globalData
+let questions
+let answersContainer
+let answerLabels
+let htmlTest
+let cssTest
+let javaScriptTest
+let accessibilityTest
 
 function populateHtml(obj) {
-    const htmlTest = obj.quizzes.find(test => test.title === 'HTML');
-    const questions = htmlTest.questions;
+    htmlTest = obj.quizzes.find(test => test.title === 'HTML');
+    questions = htmlTest.questions;
     subjectName.textContent = htmlTest.title;
+    renderQuestion()
+}
 
-    quizContainer.classList.add('quiz-container');
+function populateCss(obj) {
+    cssTest = obj.quizzes.find(test => test.title === 'CSS');
+    questions = cssTest.questions;
+    subjectName.textContent = cssTest.title;
+    renderQuestion()
+}
 
+function populateJavaScript(obj) {
+    javaScriptTest = obj.quizzes.find(test => test.title === 'JavaScript');
+    questions = javaScriptTest.questions;
+    subjectName.textContent = javaScriptTest.title;
+    renderQuestion()
+}
+
+function populateAccessibility(obj) {
+    accessibilityTest = obj.quizzes.find(test => test.title === 'Accessibility');
+    questions = accessibilityTest.questions;
+    subjectName.textContent = accessibilityTest.title;
+    renderQuestion()
+}
+
+submitBtn.addEventListener('click', () => {
+    if (submitBtn.textContent === 'Submit Answer') {
+
+        const selectedAnswer = document.querySelector('.answers-container input[name="answer"]:checked');
+        if (!selectedAnswer) {
+            if (!answersContainer.querySelector('.error-message')) {
+                const errorMessage = document.createElement('p');
+                errorMessage.classList.add('error-message');
+                errorMessage.textContent = 'Please select an answer';
+                answersContainer.appendChild(errorMessage);
+            }
+            return;
+        }
+
+        const iconCorrect = document.createElement('img');
+        iconCorrect.src = './images/icon-correct.svg';
+        const iconIncorrect = document.createElement('img');
+        iconIncorrect.src = './images/icon-incorrect.svg';
+
+        if (selectedAnswer.value == questions[currentIndex].answer) {
+            selectedAnswer.parentElement.classList.add('correct');
+            selectedAnswer.parentElement.appendChild(iconCorrect);
+            correctAnswers++;
+        } else {
+            selectedAnswer.parentElement.classList.add('incorrect');
+            selectedAnswer.parentElement.appendChild(iconIncorrect);
+
+            questions[currentIndex].options.forEach(option => {
+                if (option === questions[currentIndex].answer) {
+                    const correctLabel = document.querySelector(`.answers-container label:has(input[value="${option}"])`);
+                    if (correctLabel) {
+                        correctLabel.appendChild(iconCorrect);
+                    }
+                }
+            });
+
+            answerLabels.forEach(label => label.style.pointerEvents = 'none');
+        }
+
+        submitBtn.textContent = 'Next Question';
+        currentIndex++;
+    } else if (submitBtn.textContent === 'Next Question') {
+        if (currentIndex < questions.length) {
+            renderNextQuestion();
+        }
+
+        if (currentIndex === questions.length) {
+            quizContainer.innerHTML = ''
+            quizContainer.remove()
+            const scoreHeaderContainer = document.createElement('div');
+            const resultParagraph = document.createElement('h2');
+            resultParagraph.textContent = 'Quiz completed '
+            const resultSpan = document.createElement('span');
+            resultSpan.textContent = 'You scored...'
+
+            const scoreResultContainer = document.createElement('div');
+            const subject = document.createElement('p')
+            subject.textContent = subjectName.textContent
+
+            const points = document.createElement('p')
+            points.textContent = correctAnswers
+
+            const questionsCount = document.createElement('p')
+            questionsCount.textContent = 'out of ' + questions.length
+
+            resultParagraph.appendChild(resultSpan);
+            scoreHeaderContainer.appendChild(resultParagraph);
+            scoreResultContainer.appendChild(subject)
+            scoreResultContainer.appendChild(points)
+            scoreResultContainer.appendChild(questionsCount)
+            scoreResultContainer.appendChild(againBtn)
+            scoreContainer.appendChild(scoreHeaderContainer)
+            scoreContainer.appendChild(scoreResultContainer)
+            main.appendChild(scoreContainer)
+        }
+    }
+})
+
+const againBtn = document.createElement('button')
+againBtn.textContent = 'Play Again'
+const scoreContainer = document.createElement('div')
+
+againBtn.addEventListener('click', () => {
+    currentIndex = 0
+    correctAnswers = 0
+    scoreContainer.remove()
+    scoreContainer.innerHTML = ''
+    main.append(header)
+    populateStartMenu(globalData)
+    subjectName.textContent = ''
+})
+
+const renderQuestion = () => {
     const questionContainer = document.createElement('div');
     questionContainer.classList.add('question-container');
 
@@ -62,7 +195,7 @@ function populateHtml(obj) {
     const questionBarFill = document.createElement('div');
     questionBarFill.classList.add('question-bar-fill');
 
-    const answersContainer = document.createElement('div');
+    answersContainer = document.createElement('div');
     answersContainer.classList.add('answers-container');
 
     questionContainer.appendChild(questionTextProgress);
@@ -93,125 +226,36 @@ function populateHtml(obj) {
         answerLabel.appendChild(letterSpan);
         answerLabel.appendChild(textParagraph);
         answersContainer.appendChild(answerLabel);
-    });
+    })
 
     answersContainer.appendChild(submitBtn);
-
     submitBtn.textContent = 'Submit Answer';
+    main.appendChild(quizContainer);
+    setupAnswerSelection()
+}
 
-    const answerLabels = document.querySelectorAll('.answers-container label');
+const renderNextQuestion = () => {
+    quizContainer.innerHTML = '';
+    renderQuestion();
+}
+
+const removeErrorMessage = (answersContainer) => {
+    if (answersContainer.querySelector('.error-message')) {
+        answersContainer.querySelector('.error-message').remove()
+    }
+}
+
+const setupAnswerSelection = () => {
+    answerLabels = document.querySelectorAll('.answers-container label');
     answerLabels.forEach(label => {
         label.addEventListener('click', () => {
-            clearError(answersContainer);
+            removeErrorMessage(answersContainer);
             document.querySelectorAll('.active').forEach(activeLabel => {
                 activeLabel.classList.remove('active');
             });
             label.classList.add('active');
         });
-    });
-
-    submitBtn.onclick = () => {
-        const selectedAnswer = document.querySelector('.answers-container input[name="answer"]:checked');
-        if (!selectedAnswer) {
-            if (!answersContainer.querySelector('.error-message')) {
-                const errorMessage = document.createElement('p');
-                errorMessage.classList.add('error-message');
-                errorMessage.textContent = 'Please select an answer';
-                answersContainer.appendChild(errorMessage);
-            }
-            return;
-        }
-
-        const iconCorrect = document.createElement('img');
-        iconCorrect.src = './images/icon-correct.svg';
-        const iconIncorrect = document.createElement('img');
-        iconIncorrect.src = './images/icon-incorrect.svg';
-
-        if (selectedAnswer.value === questions[currentIndex].answer) {
-            selectedAnswer.parentElement.classList.add('correct');
-            selectedAnswer.parentElement.appendChild(iconCorrect);
-            correctAnswers++;
-        } else {
-            iconIncorrect.src = './images/icon-incorrect.svg';
-            selectedAnswer.parentElement.classList.add('incorrect');
-            selectedAnswer.parentElement.appendChild(iconIncorrect);
-
-            questions[currentIndex].options.forEach(option => {
-                if (option === questions[currentIndex].answer) {
-                    const correctLabel = document.querySelector(`.answers-container label:has(input[value="${option}"])`);
-                    if (correctLabel) {
-                        correctLabel.appendChild(iconCorrect);
-                    }
-                }
-            });
-        }
-
-        const labels = document.querySelectorAll('.answers-container label');
-        labels.forEach(label => label.style.pointerEvents = 'none');
-
-        submitBtn.textContent = 'Next Question';
-
-        submitBtn.onclick = () => {
-            currentIndex++;
-            if (currentIndex < questions.length) {
-                quizContainer.innerHTML = ''
-                populateHtml(obj);
-            }
-
-            if (currentIndex === 1) {
-                quizContainer.innerHTML = ''
-                quizContainer.remove()
-                const scoreHeaderContainer = document.createElement('div');
-                const resultParagraph = document.createElement('h2');
-                resultParagraph.textContent = 'Quiz completed '
-                const resultSpan = document.createElement('span');
-                resultSpan.textContent = 'You scored...'
-
-                const scoreResultContainer = document.createElement('div');
-                const subject = document.createElement('p')
-                subject.textContent = subjectName.textContent
-
-                const scoreContainer = document.createElement('div')
-
-                const points = document.createElement('p')
-                points.textContent = correctAnswers
-
-                const questionsCount = document.createElement('p')
-                questionsCount.textContent = 'out of ' + questions.length
-
-                const againBtn = document.createElement('button')
-                againBtn.textContent = 'Play Again'
-
-                resultParagraph.appendChild(resultSpan);
-                scoreHeaderContainer.appendChild(resultParagraph);
-                scoreResultContainer.appendChild(subject)
-                scoreResultContainer.appendChild(points)
-                scoreResultContainer.appendChild(questionsCount)
-                scoreResultContainer.appendChild(againBtn)
-                scoreContainer.appendChild(scoreHeaderContainer)
-                scoreContainer.appendChild(scoreResultContainer)
-                main.appendChild(scoreContainer)
-
-                againBtn.addEventListener('click', () => {
-                    currentIndex = 0
-                    correctAnswers = 0
-                    scoreContainer.remove()
-                    main.append(header)
-                    populateStartMenu(globalData)
-
-                })
-            };
-        };
-    }
-
-    main.appendChild(quizContainer);
-
-}
-
-const clearError = (answersContainer) => {
-    if (answersContainer.querySelector('.error-message')) {
-        answersContainer.querySelector('.error-message').remove()
-    }
+    })
 }
 
 populate()
