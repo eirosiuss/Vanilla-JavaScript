@@ -41,6 +41,7 @@
     --clr-green-100: 224, 253, 239;
 
     --clr-purple-600: 167, 41, 245;
+    --clr-purple-350: 207, 136, 250;
     --clr-purple-100: 246, 231, 255;
 
     --clr-orange-400: 255, 126, 53;
@@ -432,26 +433,78 @@ textarea:not([rows]) {
 
 .answers-container {
     padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 500;
+    font-size: var(--fs-18);
+    line-height: var(--lh-100);
+    font-size: var(--fs-28);
+
 }
 
 .answers-container label {
+    border: 3px solid transparent;
     display: flex;
     align-items: center;
     cursor: pointer;
-    border-radius: 24px;
+    border-radius: 12px;
+    background-color: rgb(var(--clr-white));
 }
 
 .answers-container label:hover {
     border: 3px solid rgb(var(--clr-purple-600));
 }
 
+.answers-container label span {
+    color: rgb(var(--clr-grey-500));
+    background-color: rgb(var(--clr-grey-50));
+    padding: 11px 14px;
+    margin: 16px;
+    border-radius: 6px;
+}
+
+.answers-container label p {
+    color: rgb(var(--clr-blue-900));
+}
+
+.answers-container label img {
+    width: 32px;
+    margin-right: 16px;
+}
+
 .answers-container input {
     display: none;
 }
 
-.active {
+.answers-container button {
+    background-color: rgb(var(--clr-purple-600));
+    color: rgb(var(--clr-white));
+    border-radius: 12px;
+    padding-block: 19px;
+}
+
+.answers-container button:hover {
+    background-color: rgb(var(--clr-purple-350))
+}
+
+.answers-container .error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    font-size: var(--fs-18);
+    line-height: var(--lh-100);
+    color: rgb(var(--clr-red-500));
+    margin: 0 auto;
+}
+
+.error-message img {
+    width: 32px;
+}
+
+.answers-container .active {
     border: 3px solid rgb(var(--clr-purple-600));
-    border-radius: 24px;
 }
 
 .answers-container .correct {
@@ -515,9 +568,27 @@ textarea:not([rows]) {
     }
 
     .answers-container {
+        gap: 24px;
         padding: 0 64px;
+        font-size: var(--fs-28);
     }
 
+    .answers-container label span {
+        padding: 14px 18px;
+        margin-right: 32px;
+        border-radius: 12px;
+    }
+
+    .answers-container label img {
+        width: 40px;
+        margin-right: 32px;
+    }
+
+    .answers-container button {
+        margin-top: 8px;
+        padding-block: 32px;
+        border-radius: 24px;
+    }
 }
 
 @media (min-width: 60em) {
@@ -530,13 +601,35 @@ textarea:not([rows]) {
         padding: 0;
     }
 
+    .question-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .answers-container {
+        flex: 1;
+    }
+
+    .question-bar-progress {
+        margin-bottom: 124px;
+    }
+
     .quiz-container {
         display: flex;
+        gap: 128px;
         justify-content: space-between;
     }
 
     .question-container h2 {
         padding: 24px 0 0;
+    }
+
+    .answers-container label span {
+        padding: 14px 18px;
+        margin: 24px 32px 24px 24px;
+        border-radius: 12px;
     }
 
 

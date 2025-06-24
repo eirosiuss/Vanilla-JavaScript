@@ -27,7 +27,6 @@ async function populate() {
         header.remove()
         populateAccessibility(data)
     })
-
 }
 
 function populateStartMenu(obj) {
@@ -36,7 +35,6 @@ function populateStartMenu(obj) {
         cardH2[index].textContent = title
     })
 }
-// const wrapper = document.querySelector('.wrapper')
 const header = document.querySelector('.header')
 const main = document.querySelector('main')
 const cardH2 = document.querySelectorAll('.subject-header h2')
@@ -51,6 +49,10 @@ const quizContainer = document.createElement('div');
 quizContainer.classList.add('quiz-container');
 const subjectName = document.querySelector('.subject-name');
 const subjectNameContainer = document.querySelector('.subject-name-container')
+const iconCorrect = document.createElement('img');
+iconCorrect.src = './images/icon-correct.svg';
+const iconIncorrect = document.createElement('img');
+iconIncorrect.src = './images/icon-incorrect.svg';
 let globalData
 let questions
 let answersContainer
@@ -99,22 +101,19 @@ function populateAccessibility(obj) {
 
 submitBtn.addEventListener('click', () => {
     if (submitBtn.textContent === 'Submit Answer') {
-
         const selectedAnswer = document.querySelector('.answers-container input[name="answer"]:checked');
         if (!selectedAnswer) {
             if (!answersContainer.querySelector('.error-message')) {
-                const errorMessage = document.createElement('p');
-                errorMessage.classList.add('error-message');
+                const errorMessageContainer = document.createElement('div');
+                const errorMessage = document.createElement('p')
+                errorMessageContainer.classList.add('error-message');
                 errorMessage.textContent = 'Please select an answer';
-                answersContainer.appendChild(errorMessage);
+                errorMessageContainer.appendChild(iconIncorrect)
+                errorMessageContainer.appendChild(errorMessage)
+                answersContainer.appendChild(errorMessageContainer);
             }
             return;
         }
-
-        const iconCorrect = document.createElement('img');
-        iconCorrect.src = './images/icon-correct.svg';
-        const iconIncorrect = document.createElement('img');
-        iconIncorrect.src = './images/icon-incorrect.svg';
 
         if (selectedAnswer.value == questions[currentIndex].answer) {
             selectedAnswer.parentElement.classList.add('correct');
@@ -193,6 +192,9 @@ const renderQuestion = () => {
     const questionContainer = document.createElement('div');
     questionContainer.classList.add('question-container');
 
+    const questionContainerHeader = document.createElement('div')
+    questionContainerHeader.classList.add('question-container-header')
+
     const questionTextProgress = document.createElement('p');
     questionTextProgress.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
 
@@ -208,8 +210,9 @@ const renderQuestion = () => {
     answersContainer = document.createElement('div');
     answersContainer.classList.add('answers-container');
 
-    questionContainer.appendChild(questionTextProgress);
-    questionContainer.appendChild(questionH2);
+    questionContainerHeader.appendChild(questionTextProgress)
+    questionContainerHeader.appendChild(questionH2)
+    questionContainer.appendChild(questionContainerHeader);
     questionContainer.appendChild(questionBarProgress);
     questionBarProgress.appendChild(questionBarFill);
     quizContainer.appendChild(questionContainer);
@@ -249,7 +252,7 @@ const renderNextQuestion = () => {
     renderQuestion();
 }
 
-const removeErrorMessage = (answersContainer) => {
+const removeerrorMessageContainer = (answersContainer) => {
     if (answersContainer.querySelector('.error-message')) {
         answersContainer.querySelector('.error-message').remove()
     }
@@ -259,7 +262,7 @@ const setupAnswerSelection = () => {
     answerLabels = document.querySelectorAll('.answers-container label');
     answerLabels.forEach(label => {
         label.addEventListener('click', () => {
-            removeErrorMessage(answersContainer);
+            removeerrorMessageContainer(answersContainer);
             document.querySelectorAll('.active').forEach(activeLabel => {
                 activeLabel.classList.remove('active');
             });
