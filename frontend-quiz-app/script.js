@@ -50,6 +50,7 @@ let correctAnswers = 0
 const quizContainer = document.createElement('div');
 quizContainer.classList.add('quiz-container');
 const subjectName = document.querySelector('.subject-name');
+const subjectNameContainer = document.querySelector('.subject-name-container')
 let globalData
 let questions
 let answersContainer
@@ -58,10 +59,13 @@ let htmlTest
 let cssTest
 let javaScriptTest
 let accessibilityTest
+let iconNav = document.createElement('img');
 
 function populateHtml(obj) {
     htmlTest = obj.quizzes.find(test => test.title === 'HTML');
     questions = htmlTest.questions;
+    iconNav.src = './images/icon-html.svg';
+    subjectNameContainer.prepend(iconNav)
     subjectName.textContent = htmlTest.title;
     renderQuestion()
 }
@@ -69,6 +73,8 @@ function populateHtml(obj) {
 function populateCss(obj) {
     cssTest = obj.quizzes.find(test => test.title === 'CSS');
     questions = cssTest.questions;
+    iconNav.src = './images/icon-css.svg';
+    subjectNameContainer.prepend(iconNav)
     subjectName.textContent = cssTest.title;
     renderQuestion()
 }
@@ -76,6 +82,8 @@ function populateCss(obj) {
 function populateJavaScript(obj) {
     javaScriptTest = obj.quizzes.find(test => test.title === 'JavaScript');
     questions = javaScriptTest.questions;
+    iconNav.src = './images/icon-js.svg';
+    subjectNameContainer.prepend(iconNav)
     subjectName.textContent = javaScriptTest.title;
     renderQuestion()
 }
@@ -83,6 +91,8 @@ function populateJavaScript(obj) {
 function populateAccessibility(obj) {
     accessibilityTest = obj.quizzes.find(test => test.title === 'Accessibility');
     questions = accessibilityTest.questions;
+    iconNav.src = './images/icon-accessibility.svg';
+    subjectNameContainer.prepend(iconNav)
     subjectName.textContent = accessibilityTest.title;
     renderQuestion()
 }
