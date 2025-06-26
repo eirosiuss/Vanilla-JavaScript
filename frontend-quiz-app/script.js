@@ -159,9 +159,11 @@ submitBtn.addEventListener('click', () => {
             subject.textContent = subjectName.textContent
 
             const points = document.createElement('p')
+            points.classList.add('points')
             points.textContent = correctAnswers
 
             const questionsCount = document.createElement('p')
+            questionsCount.classList.add('questions-count')
             questionsCount.textContent = 'out of ' + questions.length
 
             resultParagraph.appendChild(resultSpan);

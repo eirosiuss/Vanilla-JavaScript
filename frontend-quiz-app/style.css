@@ -647,6 +647,36 @@ textarea:not([rows]) {
     line-height: var(--lh-100);
 }
 
+.score-result-container {
+    margin: 0 24px;
+    text-align: center;
+}
+
+.score-output {
+    background-color: rgb(var(--clr-white));
+    border-radius: 12px;
+}
+
+.score-output h3 {
+    padding: 32px 0 16px;
+}
+
+.points {
+
+}
+
+.questions-count {
+padding: 16px 0 32px;
+}
+
+.score-result-container button {
+    background-color: rgb(var(--clr-purple-600));
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 16px;
+    padding: 16px 0 16px;
+}
+
 @media (min-width: 36em) {
     .result-header {
         padding: 2px 64px 64px;
@@ -661,6 +691,19 @@ textarea:not([rows]) {
 @media (min-width: 60em) {
     .result-header {
         padding: 0;
+    }
+
+    .score-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .result-header {
+        flex: 1;
+    }
+
+    .score-result-container {
+        flex: 1;
     }
 }
 
