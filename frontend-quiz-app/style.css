@@ -631,8 +631,37 @@ textarea:not([rows]) {
         margin: 24px 32px 24px 24px;
         border-radius: 12px;
     }
+}
 
+.result-header {
+    font-weight: 300;
+    font-size: var(--fs-40);
+    line-height: var(--lh-100);
+    color: rgb(var(--clr-blue-900));
+    padding: 32px 24px 40px;
+}
 
+.result-header span {
+    font-weight: 500;
+    font-size: var(--fs-40);
+    line-height: var(--lh-100);
+}
+
+@media (min-width: 36em) {
+    .result-header {
+        padding: 2px 64px 64px;
+        font-size: var(--fs-64);
+    }
+
+    .result-header span {
+        font-size: var(--fs-64);
+    }
+}
+
+@media (min-width: 60em) {
+    .result-header {
+        padding: 0;
+    }
 }
 
 .main-header {

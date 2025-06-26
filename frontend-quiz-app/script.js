@@ -142,17 +142,20 @@ submitBtn.addEventListener('click', () => {
             renderNextQuestion();
         }
 
-        if (currentIndex === questions.length) {
+        if (currentIndex === 1) {
             quizContainer.innerHTML = ''
             quizContainer.remove()
-            const scoreHeaderContainer = document.createElement('div');
             const resultParagraph = document.createElement('h2');
+            resultParagraph.classList.add('result-header')
             resultParagraph.textContent = 'Quiz completed '
             const resultSpan = document.createElement('span');
             resultSpan.textContent = 'You scored...'
 
             const scoreResultContainer = document.createElement('div');
-            const subject = document.createElement('p')
+            scoreResultContainer.classList.add('score-result-container')
+            const scoreOutput = document.createElement('div')
+            scoreOutput.classList.add('score-output')
+            const subject = document.createElement('h3')
             subject.textContent = subjectName.textContent
 
             const points = document.createElement('p')
@@ -162,12 +165,13 @@ submitBtn.addEventListener('click', () => {
             questionsCount.textContent = 'out of ' + questions.length
 
             resultParagraph.appendChild(resultSpan);
-            scoreHeaderContainer.appendChild(resultParagraph);
-            scoreResultContainer.appendChild(subject)
-            scoreResultContainer.appendChild(points)
-            scoreResultContainer.appendChild(questionsCount)
+            scoreOutput.appendChild(subject)
+            scoreOutput.appendChild(points)
+            scoreOutput.appendChild(questionsCount)
+            scoreOutput.appendChild(questionsCount)
+            scoreResultContainer.appendChild(scoreOutput)
             scoreResultContainer.appendChild(againBtn)
-            scoreContainer.appendChild(scoreHeaderContainer)
+            scoreContainer.appendChild(resultParagraph)
             scoreContainer.appendChild(scoreResultContainer)
             main.appendChild(scoreContainer)
         }
@@ -177,6 +181,7 @@ submitBtn.addEventListener('click', () => {
 const againBtn = document.createElement('button')
 againBtn.textContent = 'Play Again'
 const scoreContainer = document.createElement('div')
+scoreContainer.classList.add('score-container')
 
 againBtn.addEventListener('click', () => {
     currentIndex = 0
