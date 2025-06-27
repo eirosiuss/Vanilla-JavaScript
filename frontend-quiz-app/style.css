@@ -507,12 +507,29 @@ textarea:not([rows]) {
     border: 3px solid rgb(var(--clr-purple-600));
 }
 
+.answers-container .active span {
+    background-color: rgb(var(--clr-purple-600));
+    color: rgb(var(--clr-white));
+}
+
 .answers-container .correct {
     border: 3px solid rgb(var(--clr-green-500));
+
+}
+
+.answers-container .correct span {
+    background-color: rgb(var(--clr-green-500));
+    color: rgb(var(--clr-white));
 }
 
 .answers-container .incorrect {
     border: 3px solid rgb(var(--clr-red-500));
+
+}
+
+.answers-container .incorrect span {
+    background-color: rgb(var(--clr-red-500));
+    color: rgb(var(--clr-white));
 }
 
 @media (min-width: 36em) {
