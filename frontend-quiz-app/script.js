@@ -68,6 +68,7 @@ function populateHtml(obj) {
     questions = htmlTest.questions;
     iconNav.src = './images/icon-html.svg';
     subjectNameContainer.prepend(iconNav)
+    subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = htmlTest.title;
     renderQuestion()
 }
@@ -77,6 +78,7 @@ function populateCss(obj) {
     questions = cssTest.questions;
     iconNav.src = './images/icon-css.svg';
     subjectNameContainer.prepend(iconNav)
+    subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = cssTest.title;
     renderQuestion()
 }
@@ -86,6 +88,7 @@ function populateJavaScript(obj) {
     questions = javaScriptTest.questions;
     iconNav.src = './images/icon-js.svg';
     subjectNameContainer.prepend(iconNav)
+    subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = javaScriptTest.title;
     renderQuestion()
 }
@@ -95,6 +98,7 @@ function populateAccessibility(obj) {
     questions = accessibilityTest.questions;
     iconNav.src = './images/icon-accessibility.svg';
     subjectNameContainer.prepend(iconNav)
+    subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = accessibilityTest.title;
     renderQuestion()
 }
@@ -155,6 +159,8 @@ submitBtn.addEventListener('click', () => {
             scoreResultContainer.classList.add('score-result-container')
             const scoreOutput = document.createElement('div')
             scoreOutput.classList.add('score-output')
+            const scoreOutputHeader = document.createElement('div')
+            scoreOutputHeader.classList.add('score-output-header')
             const subject = document.createElement('h3')
             subject.textContent = subjectName.textContent
 
@@ -167,7 +173,10 @@ submitBtn.addEventListener('click', () => {
             questionsCount.textContent = 'out of ' + questions.length
 
             resultParagraph.appendChild(resultSpan);
-            scoreOutput.appendChild(subject)
+            let iconNavClone = iconNav.cloneNode(true)
+            scoreOutputHeader.appendChild(iconNavClone)
+            scoreOutputHeader.appendChild(subject)
+            scoreOutput.appendChild(scoreOutputHeader)
             scoreOutput.appendChild(points)
             scoreOutput.appendChild(questionsCount)
             scoreOutput.appendChild(questionsCount)
@@ -190,6 +199,7 @@ againBtn.addEventListener('click', () => {
     correctAnswers = 0
     scoreContainer.remove()
     scoreContainer.innerHTML = ''
+    subjectNameContainer.innerHTML = ''
     main.append(header)
     populateStartMenu(globalData)
     subjectName.textContent = ''
@@ -259,7 +269,7 @@ const renderNextQuestion = () => {
     renderQuestion();
 }
 
-const removeerrorMessageContainer = (answersContainer) => {
+const removeerrorMessage = (answersContainer) => {
     if (answersContainer.querySelector('.error-message')) {
         answersContainer.querySelector('.error-message').remove()
     }
@@ -269,7 +279,7 @@ const setupAnswerSelection = () => {
     answerLabels = document.querySelectorAll('.answers-container label');
     answerLabels.forEach(label => {
         label.addEventListener('click', () => {
-            removeerrorMessageContainer(answersContainer);
+            removeerrorMessage(answersContainer);
             document.querySelectorAll('.active').forEach(activeLabel => {
                 activeLabel.classList.remove('active');
             });
