@@ -146,7 +146,7 @@ submitBtn.addEventListener('click', () => {
             renderNextQuestion();
         }
 
-        if (currentIndex === questions.length) {
+        if (currentIndex === 1) {
             quizContainer.innerHTML = ''
             quizContainer.remove()
             const resultParagraph = document.createElement('h2');
@@ -290,9 +290,8 @@ const setupAnswerSelection = () => {
 
 const themeBtn = document.getElementById('switch')
 themeBtn.addEventListener('click', () => {
-    console.log('asd');
-    
+    const body = document.querySelector('body')
+    body.classList.toggle('theme-dark')
 })
-
 
 populate()
