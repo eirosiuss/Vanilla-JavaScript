@@ -167,7 +167,7 @@ submitBtn.addEventListener('click', () => {
             renderNextQuestion();
         }
 
-        if (currentIndex === 1) {
+        if (currentIndex === questions.length) {
             quizContainer.innerHTML = ''
             quizContainer.remove()
             const resultParagraph = document.createElement('h2');
