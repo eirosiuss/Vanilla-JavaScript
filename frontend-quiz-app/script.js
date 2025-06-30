@@ -61,12 +61,18 @@ let htmlTest
 let cssTest
 let javaScriptTest
 let accessibilityTest
-let iconNav = document.createElement('img');
+let iconNav = document.createElement('div');
+iconNav.classList.add('icon-svg')
 
 function populateHtml(obj) {
     htmlTest = obj.quizzes.find(test => test.title === 'HTML');
     questions = htmlTest.questions;
-    iconNav.src = './images/icon-html.svg';
+    fetch('./images/icon-html.svg')
+        .then(response => response.text())
+        .then(svgText => {
+            iconNav.innerHTML = svgText;
+        });
+    iconNav.style.backgroundColor = 'rgb(var(--clr-orange-50))'
     subjectNameContainer.prepend(iconNav)
     subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = htmlTest.title;
@@ -76,7 +82,12 @@ function populateHtml(obj) {
 function populateCss(obj) {
     cssTest = obj.quizzes.find(test => test.title === 'CSS');
     questions = cssTest.questions;
-    iconNav.src = './images/icon-css.svg';
+    fetch('./images/icon-css.svg')
+        .then(response => response.text())
+        .then(svgText => {
+            iconNav.innerHTML = svgText;
+        });
+    iconNav.style.backgroundColor = 'rgb(var(--clr-green-100))'
     subjectNameContainer.prepend(iconNav)
     subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = cssTest.title;
@@ -86,7 +97,12 @@ function populateCss(obj) {
 function populateJavaScript(obj) {
     javaScriptTest = obj.quizzes.find(test => test.title === 'JavaScript');
     questions = javaScriptTest.questions;
-    iconNav.src = './images/icon-js.svg';
+    fetch('./images/icon-js.svg')
+        .then(response => response.text())
+        .then(svgText => {
+            iconNav.innerHTML = svgText;
+        });
+    iconNav.style.backgroundColor = 'rgb(var(--clr-blue-50))'
     subjectNameContainer.prepend(iconNav)
     subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = javaScriptTest.title;
@@ -96,7 +112,12 @@ function populateJavaScript(obj) {
 function populateAccessibility(obj) {
     accessibilityTest = obj.quizzes.find(test => test.title === 'Accessibility');
     questions = accessibilityTest.questions;
-    iconNav.src = './images/icon-accessibility.svg';
+    fetch('./images/icon-accessibility.svg')
+        .then(response => response.text())
+        .then(svgText => {
+            iconNav.innerHTML = svgText;
+        });
+    iconNav.style.backgroundColor = 'rgb(var(--clr-purple-100))'
     subjectNameContainer.prepend(iconNav)
     subjectNameContainer.appendChild(subjectName)
     subjectName.textContent = accessibilityTest.title;

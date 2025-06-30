@@ -339,8 +339,8 @@ textarea:not([rows]) {
     color: rgb(var(--clr-blue-900));
 }
 
-.subject-name-container img {
-    background-color: rgb(var(--clr-green-100));
+.icon-svg {
+    border-radius: 6px;
 }
 
 .nav .toggle-color {
@@ -576,8 +576,13 @@ textarea:not([rows]) {
         font-size: var(--fs-28);
     }
 
-    .subject-name-container img {
+    .subject-name-container svg {
         width: 56px;
+        height: 56px;
+    }
+
+    .icon-svg {
+        border-radius: 8px;
     }
 
     .question-container {
@@ -755,6 +760,11 @@ textarea:not([rows]) {
         gap: 24px;
     }
 
+    .score-output-header svg {
+        width: 56px;
+        height: 56px;
+    }
+
     .score-output h3 {
         font-size: var(--fs-28);
     }
@@ -835,7 +845,7 @@ textarea:not([rows]) {
 }
 
 .theme-dark .question-container p {
-color: rgb(var(--clr-blue-300));
+    color: rgb(var(--clr-blue-300));
 }
 
 .theme-dark .question-bar-progress {
@@ -844,7 +854,7 @@ color: rgb(var(--clr-blue-300));
 
 .theme-dark .answers-container label {
     background-color: rgb(var(--clr-blue-850));
-    color:  rgb(var(--clr-white));
+    color: rgb(var(--clr-white));
 }
 
 .theme-dark .result-header {
@@ -856,8 +866,7 @@ color: rgb(var(--clr-blue-300));
 }
 
 .theme-dark .score-output h3,
-.theme-dark .points
-{
+.theme-dark .points {
     color: rgb(var(--clr-white));
 }
 
@@ -921,6 +930,9 @@ color: rgb(var(--clr-blue-300));
     .subject-header svg {
         margin: 24px;
         padding: 8px;
+        width: 56px;
+        height: 56px;
+
     }
 }
 
