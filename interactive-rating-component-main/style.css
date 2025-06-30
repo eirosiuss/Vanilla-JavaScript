@@ -1,0 +1,234 @@
+/* =============================================== */
+/* Custom properties */
+
+:root {
+    --clr-white: 255, 255, 255;
+    --clr-black: 0, 0, 0;
+    --clr-grey-950: 19, 21, 24;
+    --clr-grey-900: 38, 46, 56;
+    --clr-grey-500: 150, 159, 173;
+    --clr-orange-500: 252, 118, 20;
+    --clr-gradient-1-start: 35, 42, 52;
+    --clr-gradient-1-end: 24, 30, 39;
+}
+
+/* @media (min-width: 36em) {
+    :root {
+        --fs-48: 48px;
+        --lh-71: 71px;
+
+    }
+} */
+
+/* @media (min-width: 48em) {
+    :root {
+        --fs-48: 48px;
+    }
+} */
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-size: var(--font-base);
+    font-family: var(--ff-space-mono);
+    background-color: rgb(var(--clr-grey-200))
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.container {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.text-white {
+    color: rgb(var(--clr-white));
+}
+
+.text-black {
+    color: rgb(var(--clr-black));
+}
+
+.text-grey-950 {
+    color: rgb(var(--clr-grey-950));
+}
+
+.text-grey-900 {
+    color: rgb(var(--clr-grey-900));
+}
+
+.text-grey-500 {
+    color: rgb(var(--clr-grey-500));
+}
+
+.text-orange-500 {
+    color: rgb(var(--clr-orange-500));
+}
+
+.bg-white {
+    background-color: rgb(var(--clr-white));
+}
+
+.bg-black {
+    background-color: rgb(var(--clr-black));
+}
+
+.bg-grey-950 {
+    background-color: rgb(var(--clr-grey-950));
+}
+
+.bg-grey-900 {
+    background-color: rgb(var(--clr-grey-900));
+}
+
+.bg-grey-500 {
+    background-color: rgb(var(--clr-grey-500));
+}
+
+.bg-orange-500 {
+    background-color: rgb(var(--clr-orange-500));
+}
+
+.bg-gradient-1 {
+    background: linear-gradient(180deg, rgb(var(--clr-gradient-1-start)), rgb(var(--clr-gradient-1-end)));
+}
+
+.text-preset-1 {
+    font-family: "Overpass", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+    letter-spacing: 0px;
+}
+
+.text-preset-2 {
+    font-family: "Overpass", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0px;
+}
+
+.text-preset-3 {
+    font-family: "Overpass", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+}
+
+.text-preset-4-bold {
+    font-family: "Overpass", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+    letter-spacing: 2px;
+}
+
+.text-preset-4-regular {
+    font-family: "Overpass", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
+
+.text-preset-5-bold {
+    font-family: "Overpass", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.87px;
+}
+
+.text-preset-5-semibold {
+    font-family: "Overpass", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.17px;
+}
+
+.text-preset-5-regular {
+    font-family: "Overpass", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0px;
+}
