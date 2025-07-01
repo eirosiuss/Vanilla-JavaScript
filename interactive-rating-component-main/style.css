@@ -2,14 +2,35 @@
 /* Custom properties */
 
 :root {
+    --ff-overpass: "Overpass", sans-serif;
+
+    --fs-28: 1.75rem;
+    --fs-24: 1.5rem;
+    --fs-16: 1rem;
+    --fs-15: 0.9375rem;
+    --fs-14: 0.875rem;
+
+    --lh-35: 2.1875rem;
+    --lh-30: 1.875rem;
+    --lh-24: 1.5rem;
+    --lh-22: 1.375rem;
+    --lh-19: 1.1875rem;
+    --lh-18: 1.125rem;
+
+    --ls-0: 0px;
+    --ls-02: 0.2px;
+    --ls-017: 0.17px;
+    --ls-187: 1.87px;
+    --ls-2: 2px;
+
     --clr-white: 255, 255, 255;
     --clr-black: 0, 0, 0;
+
     --clr-grey-950: 19, 21, 24;
     --clr-grey-900: 38, 46, 56;
     --clr-grey-500: 150, 159, 173;
+
     --clr-orange-500: 252, 118, 20;
-    --clr-gradient-1-start: 35, 42, 52;
-    --clr-gradient-1-end: 24, 30, 39;
 }
 
 /* @media (min-width: 36em) {
@@ -114,7 +135,7 @@ textarea:not([rows]) {
 
 .container {
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 351px;
 }
 
 .text-white {
@@ -141,94 +162,136 @@ textarea:not([rows]) {
     color: rgb(var(--clr-orange-500));
 }
 
-.bg-white {
-    background-color: rgb(var(--clr-white));
-}
-
-.bg-black {
-    background-color: rgb(var(--clr-black));
-}
-
-.bg-grey-950 {
-    background-color: rgb(var(--clr-grey-950));
-}
-
-.bg-grey-900 {
-    background-color: rgb(var(--clr-grey-900));
-}
-
-.bg-grey-500 {
-    background-color: rgb(var(--clr-grey-500));
-}
-
-.bg-orange-500 {
-    background-color: rgb(var(--clr-orange-500));
-}
-
-.bg-gradient-1 {
-    background: linear-gradient(180deg, rgb(var(--clr-gradient-1-start)), rgb(var(--clr-gradient-1-end)));
-}
-
 .text-preset-1 {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-28);
+    line-height: var(--lh-35);
+    letter-spacing: var(--ls-0);
     font-weight: 700;
-    font-size: 28px;
-    line-height: 35px;
-    letter-spacing: 0px;
 }
 
 .text-preset-2 {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-24);
+    line-height: var(--lh-30);
+    letter-spacing: var(--ls-0);
     font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    letter-spacing: 0px;
 }
 
 .text-preset-3 {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    letter-spacing: var(--ls-02);
     font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 0.2px;
 }
 
 .text-preset-4-bold {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-15);
+    line-height: var(--lh-19);
+    letter-spacing: var(--ls-2);
     font-weight: 700;
-    font-size: 15px;
-    line-height: 19px;
-    letter-spacing: 2px;
 }
 
 .text-preset-4-regular {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-15);
+    line-height: var(--lh-24);
+    letter-spacing: var(--ls-0);
     font-weight: 400;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: 0px;
 }
 
 .text-preset-5-bold {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-14);
+    line-height: var(--lh-18);
+    letter-spacing: var(--ls-187);
     font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 1.87px;
 }
 
 .text-preset-5-semibold {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-14);
+    line-height: var(--lh-24);
+    letter-spacing: var(--ls-017);
     font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.17px;
 }
 
 .text-preset-5-regular {
-    font-family: "Overpass", sans-serif;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    letter-spacing: var(--ls-0);
     font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 0px;
+}
+
+/* =============================================== */
+/* Components */
+
+.submit-btn {
+    background-color: rgb(var(--clr-orange-500));
+    border-radius: 22.5px;
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-14);
+    line-height: var(--lh-18);
+    letter-spacing: var(--ls-187);
+    font-weight: 700;
+    width: 100%;
+    padding: 0.781em 0;
+}
+
+@media (min-width: 36em) {
+    .submit-btn {
+        line-height: var(--lh-24);
+        letter-spacing: var(--ls-017);
+        font-weight: 600;
+    }
+}
+
+.label-radio {
+    position: relative;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.option-btn {
+    font-family: var(--ff-overpass);
+    font-size: var(--fs-14);
+    line-height: var(--lh-24);
+    letter-spacing: var(--ls-017);
+    font-weight: 600;
+    aspect-ratio: 1/1;
+    height: 2.625em;
+    background-color: rgb(var(--clr-grey-900));
+    color: rgb(var(--clr-grey-500));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.label-radio input:checked+.option-btn {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* =============================================== */
+/* Form */
+
+.rating-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
 }
