@@ -82,7 +82,7 @@ const handleGeneratePassword = () => {
 }
 
 copyBtn.addEventListener('click', () => {
-  if (password.value) {
+  if (password.classList.contains('text-grey-200')) {
     navigator.clipboard.writeText(password.value)
     copyText.textContent = 'Copied!'
   } else {
