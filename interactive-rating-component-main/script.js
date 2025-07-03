@@ -2,11 +2,16 @@ const submitBtn = document.querySelector(".submit-btn");
 const ratingOptions = document.querySelectorAll(".rating-options input");
 const container = document.querySelector(".container");
 
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", (event) => {
   ratingOptions.forEach((option) => {
+    if (!option.checked) {
+      event.preventDefault();
+      return;
+    }
+
     if (option.checked) {
-        container.classList.remove('container');
-        container.classList.add('thank-you-container');
+      container.classList.remove("container");
+      container.classList.add("thank-you-container");
       container.innerHTML = `
                     <article>
                         <div class="online-payment-container">
