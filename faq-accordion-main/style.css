@@ -1,0 +1,167 @@
+/* =============================================== */
+/* Custom properties */
+
+:root {
+    --font-base: 1rem;
+
+    --ff-work-sans: 'Work Sans', sans-serif;
+
+    --fs-56: 3.5rem;
+    --fs-18: 1.125rem;
+    --fs-16: 1rem;
+
+    --lh-66: 4.125rem;
+    --lh-21: 1.3125rem;
+    --lh-24: 1.5rem;
+
+    --ls-0: 0px;
+
+    --clr-white: 255, 255, 255;
+    --clr-black: 0, 0, 0;
+
+    --clr-purple-950: 48, 21, 52;
+    --clr-purple-600: 139, 105, 144;
+    --clr-purple-100: 248, 238, 255;
+
+    --clr-violet-600: 173, 40, 235;
+
+}
+
+/* @media (min-width: 36em) {
+    :root {
+        --fs-48: 48px;
+        --lh-71: 71px;
+
+    }
+} */
+
+/* @media (min-width: 48em) {
+    :root {
+        --fs-48: 48px;
+    }
+} */
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-family: var(--ff-work-sans);
+    font-size: var(--font-base);
+    background-color: rgb(var(--clr-purple-100));
+    color: rgb(var(--clr-purple-950));
+}
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.text-preset-1 {
+    font-family: var(--ff-work-sans);
+    font-size: var(--fs-56);
+    line-height: var(--lh-66);
+    letter-spacing: var(--ls-0);
+    font-weight: 700; /* Bold */
+}
+
+.text-preset-2 {
+    font-family: var(--ff-work-sans);
+    font-size: var(--fs-18);
+    line-height: var(--lh-21);
+    letter-spacing: var(--ls-0);
+    font-weight: 600; /* SemiBold */
+}
+
+.text-preset-3 {
+    font-family: var(--ff-work-sans);
+    font-size: var(--fs-16);
+    line-height: var(--lh-24);
+    letter-spacing: var(--ls-0);
+    font-weight: 400; /* Regular */
+}
+
+.container {
+
+}
+
+@media (min-width: 36em) {
+    .container {
+        
+    }
+}
+
+/* =============================================== */
+/* Components */
