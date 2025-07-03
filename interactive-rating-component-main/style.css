@@ -198,14 +198,15 @@ textarea:not([rows]) {
     font-weight: 400;
 }
 
-.container {
+.container,
+.thank-you-container {
     margin: auto;
     max-width: 327px;
     background: linear-gradient(to right, rgb(var(--clr-gradient-1)), rgb(var(--clr-gradient-2)));
     border-radius: 15px;
 }
 
-article {
+.container article {
     padding: 24px;
 }
 
@@ -223,7 +224,7 @@ article {
     margin: auto;
 }
 
-h1 {
+.container h1 {
     font-size: var(--fs-24);
     line-height: var(--lh-30);
     letter-spacing: var(--ls-0);
@@ -232,7 +233,7 @@ h1 {
     color: rgb(var(--clr-white));
 }
 
-p {
+.container p {
     font-size: var(--fs-14);
     line-height: var(--lh-22);
     letter-spacing: var(--ls-0);
@@ -248,12 +249,14 @@ p {
 }
 
 @media (min-width: 36em) {
-    .container {
+
+    .container,
+    .thank-you-container {
         max-width: 412px;
         border-radius: 30px;
     }
 
-    article {
+    .container article {
         padding: 32px 24px;
     }
 
@@ -265,13 +268,13 @@ p {
         height: 16px;
     }
 
-    h1 {
+    .container h1 {
         margin-block: 32px 16px;
         font-size: var(--fs-28);
         line-height: var(--lh-35);
     }
 
-    p {
+    .container p {
         font-size: var(--fs-15);
         line-height: var(--lh-24);
     }
@@ -353,5 +356,69 @@ p {
 
 
 /* =============================================== */
-/* Form */
+/* Thank you page */
 
+.thank-you-container article {
+    text-align: center;
+    margin: 36px 24px;
+}
+
+.online-payment-container img {
+    height: 96px;
+    width: 144px;
+    margin: 0 auto;
+}
+
+.thank-you-container .selected-rating {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    letter-spacing: var(--ls-0);
+    font-weight: 400;
+    color: rgb(var(--clr-orange-500));
+    margin-block: 30px;
+}
+
+.thank-you-container h2 {
+    font-size: var(--fs-24);
+    line-height: var(--lh-30);
+    letter-spacing: var(--ls-0);
+    font-weight: 700;
+    color: rgb(var(--clr-white));
+    margin-block-end: 16px;
+}
+
+.thank-you-container p {
+    font-size: var(--fs-14);
+    line-height: var(--lh-22);
+    letter-spacing: var(--ls-0);
+    font-weight: 400;
+    color: rgb(var(--clr-grey-500));
+}
+
+@media (min-width: 36em) {
+    .thank-you-container article {
+        margin: 44.5px 36px;
+    }
+
+    .online-payment-container img {
+        height: 108px;
+        width: 162px;
+        margin: 0 auto;
+    }
+
+    .selected-rating {
+        font-size: var(--fs-15);
+        line-height: var(--lh-24);
+        margin-block: 38px;
+    }
+
+    .thank-you-container h2 {
+        font-size: var(--fs-28);
+        line-height: var(--lh-35);
+    }
+
+    .thank-you-container p {
+        font-size: var(--fs-15);
+        line-height: var(--lh-24);
+    }
+}
