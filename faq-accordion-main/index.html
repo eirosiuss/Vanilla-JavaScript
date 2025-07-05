@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="FAQ accordion">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,70 +16,77 @@
 </head>
 
 <body>
-  <main class="container">
-    <section>
-      <header>
-        <img src="./assets/images/icon-star.svg" alt="star">
-        <h2>FAQs</h2>
-      </header>
-      <div class="faq-container">
-        <details open="">
-          <summary> What is Frontend Mentor, and how will it help me?</summary>
-          Frontend Mentor offers realistic coding challenges to help developers improve their
-          frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
-          all levels and ideal for portfolio building.
-        </details>
-        <button aria-hidden="true" focusable="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
-            <path fill="#301534"
-              d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z" />
-          </svg>
-        </button>
-      </div>
-      <hr>
-      <div class="faq-container">
-        <details>
-          <summary> Is Frontend Mentor free?</summary>
-          Yes, Frontend Mentor offers both free and premium coding challenges, with the free
-          option providing access to a range of projects suitable for all skill levels.
-        </details>
-        <button aria-hidden="true" focusable="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
-            <path fill="#AD28EB"
-              d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z" />
-          </svg>
-        </button>
-      </div>
-      <hr>
-      <div class="faq-container">
-        <details>
-          <summary> Can I use Frontend Mentor projects in my portfolio?</summary>
-          Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
-          way to showcase your skills to potential employers!
-        </details>
-        <button aria-hidden="true" focusable="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
-            <path fill="#AD28EB"
-              d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z" />
-          </svg>
-        </button>
-      </div>
-      <hr>
-      <div class="faq-container">
-        <details>
-          <summary> How can I get help if I'm stuck on a Frontend Mentor challenge?</summary>
-          The best place to get help is inside Frontend Mentor's Discord community. There's a help
-          channel where you can ask questions and seek support from other community members.
-        </details>
-        <button aria-hidden="true" focusable="false">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
-            <path fill="#AD28EB"
-              d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z" />
-          </svg>
-        </button>
-      </div>
-    </section>
-  </main>
+  <div class="wrapper">
+    <main class="container">
+      <section>
+        <header>
+          <img src="./assets/images/icon-star.svg" alt="star">
+          <h2>FAQs</h2>
+        </header>
+        <div class="faq-container">
+          <details open="">
+            <summary> What is Frontend Mentor, and how will it help me?
+              <span aria-hidden="true" focusable="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+                  <path fill="#301534"
+                    d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z" />
+                </svg>
+              </span>
+            </summary>
+            Frontend Mentor offers realistic coding challenges to help developers improve their
+            frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
+            all levels and ideal for portfolio building.
+          </details>
+        </div>
+        <hr>
+        <div class="faq-container">
+          <details>
+            <summary> Is Frontend Mentor free?
+              <span aria-hidden="true" focusable="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+                  <path fill="#AD28EB"
+                    d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z" />
+                </svg>
+              </span>
+            </summary>
+            Yes, Frontend Mentor offers both free and premium coding challenges, with the free
+            option providing access to a range of projects suitable for all skill levels.
+          </details>
+        </div>
+        <hr>
+        <div class="faq-container">
+          <details>
+            <summary> Can I use Frontend Mentor projects in my portfolio?
+              <span aria-hidden="true" focusable="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+                  <path fill="#AD28EB"
+                    d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z" />
+                </svg>
+              </span>
+            </summary>
+            Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+            way to showcase your skills to potential employers!
+          </details>
+        </div>
+        <hr>
+        <div class="faq-container">
+          <details>
+            <summary> How can I get help if I'm stuck on a Frontend Mentor challenge?
+              <span aria-hidden="true" focusable="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+                  <path fill="#AD28EB"
+                    d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z" />
+                </svg>
+              </span>
+            </summary>
+            The best place to get help is inside Frontend Mentor's Discord community. There's a help
+            channel where you can ask questions and seek support from other community members.
+          </details>
+
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 
 </html>
