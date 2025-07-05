@@ -77,7 +77,8 @@ blockquote,
 dl,
 dd,
 ul,
-ol {
+ol,
+button {
     margin: 0;
     padding: 0;
 }
@@ -190,12 +191,36 @@ header h2 {
     font-weight: 700;
 }
 
+.faq-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-container:not(:last-child) {
+    padding-block-end: 24px;
+}
+
+.faq-container button {
+    align-self: flex-start;
+    width: 30px;
+    aspect-ratio: 1/1;
+}
+
+.faq-container svg {
+    width: 30px;
+    aspect-ratio: 1/1;
+}
+
 summary {
     font-size: var(--fs-16);
     font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+    pointer-events: none;
 }
 
-details:open:not(:last-of-type)  summary {
+details:open summary {
     padding-block-end: 24px;
 }
 
@@ -204,14 +229,13 @@ details {
     font-weight: 400;
 }
 
-details:not(:last-child) {
-    padding-block-end: 24px;
-
+hr {
+    margin-block: 0 24px;
+    border: none;
+    border-top: 1px solid rgb(var(--clr-purple-100));
 }
 
-details:open:not(:last-child) {
-    padding-block-end: 24px;
-}
+
 
 @media (min-width: 36em) {
     .container {}
