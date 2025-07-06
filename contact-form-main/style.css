@@ -1,0 +1,176 @@
+/* =============================================== */
+/* Custom properties */
+
+:root {
+    --font-base: 1rem;
+
+    --ff-karla: 'Karla', sans-serif;
+
+    --fs-32: 2rem;
+    --lh-100: 2rem;
+    --ls--1: -1px;
+
+    --fs-18: 1.125rem;
+    --lh-150-18: 1.6875rem;
+    --ls-0: 0px;
+
+    --fs-16: 1rem;
+    --lh-150-16: 1.5rem;
+
+    --clr-white: 255, 255, 255;
+    --clr-grey-900: 42, 65, 68;
+    --clr-grey-500: 134, 162, 165;
+    --clr-green-600: 12, 125, 105;
+    --clr-green-200: 224, 241, 232;
+    --clr-error: 215, 60, 60;
+
+}
+
+/* @media (min-width: 36em) {
+    :root {
+        --fs-48: 48px;
+        --lh-71: 71px;
+
+    }
+} */
+
+/* @media (min-width: 48em) {
+    :root {
+        --fs-48: 48px;
+    }
+} */
+
+/* =============================================== */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+body {
+    font-size: var(--font-base);
+    font-family: var(--ff-karla);
+    background-color: var(--clr-green-200);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+}
+
+button {
+    border: none;
+    background: inherit;
+    cursor: pointer;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* =============================================== */
+/* Utility classes */
+
+.heading {
+    font-family: var(--ff-karla);
+    font-size: var(--fs-32);
+    line-height: var(--lh-100);
+    letter-spacing: var(--ls--1);
+    font-weight: 700;
+}
+
+.body-md-bold {
+    font-family: var(--ff-karla);
+    font-size: var(--fs-18);
+    line-height: var(--lh-150-18);
+    letter-spacing: var(--ls-0);
+    font-weight: 700;
+}
+
+.body-md-regular {
+    font-family: var(--ff-karla);
+    font-size: var(--fs-18);
+    line-height: var(--lh-150-18);
+    letter-spacing: var(--ls-0);
+    font-weight: 400;
+}
+
+.body-sm {
+    font-family: var(--ff-karla);
+    font-size: var(--fs-16);
+    line-height: var(--lh-150-16);
+    letter-spacing: var(--ls-0);
+    font-weight: 400;
+}
+
+.container {
+    margin: auto;
+    max-width: 327px
+}
+
+@media (min-width: 36em) {
+
+    .container {
+        max-width: 412px;
+        border-radius: 30px;
+    }
+}
+
+/* =============================================== */
+/* Components */
