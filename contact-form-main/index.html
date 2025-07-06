@@ -17,7 +17,37 @@
 
 <body>
 
-  Contact Us
+  <main class="container">
+
+    <form novalidate>
+      <fieldset>
+        <div class="form-text-group">
+          <label for="name">First name<span class="required" aria-hidden="true">*</span>
+            <span class="sr-only">required</span>
+          </label>
+          <input type="text" id="name" name="name" autocomplete="new-password"
+            aria-describedby="error-name">
+          <p class="error-message" id="error-name">Please check your first name.</p>
+        </div>
+        <div class="form-text-group">
+          <label for="surname">Last Name<span class="required" aria-hidden="true">*</span><span
+              class="sr-only">required</span></label>
+          <input type="text" id="surname" name="surname" autocomplete="family-name">
+          <p class="error-message" id="error-surname">Please check your last name.</p>
+        </div>
+        <div class="form-text-group">
+          <label for="email">Email Address<span class="required" aria-hidden="true">*</span><span
+              class="sr-only">required</span></label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <p class="error-message" id="error-email">Please check your email address.</p>
+        </div>
+      </fieldset>
+      <button class="submit-btn" type="submit">Submit</button>
+    </form>
+
+  </main>
+
+  <!-- Contact Us
 
   First Name
   This field is required
@@ -43,7 +73,7 @@
   Submit
 
   Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+  Thanks for completing the form. We'll be in touch soon! -->
 
 </body>
 

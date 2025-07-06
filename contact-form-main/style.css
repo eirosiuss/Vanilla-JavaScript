@@ -57,7 +57,9 @@ html {
 body {
     font-size: var(--font-base);
     font-family: var(--ff-karla);
-    background-color: var(--clr-green-200);
+    background-color: rgb(var(--clr-green-200));
+    display: flex;
+    height: 100vh;
 }
 
 body,
@@ -128,7 +130,6 @@ textarea:not([rows]) {
 /* Utility classes */
 
 .heading {
-    font-family: var(--ff-karla);
     font-size: var(--fs-32);
     line-height: var(--lh-100);
     letter-spacing: var(--ls--1);
@@ -136,41 +137,100 @@ textarea:not([rows]) {
 }
 
 .body-md-bold {
-    font-family: var(--ff-karla);
     font-size: var(--fs-18);
     line-height: var(--lh-150-18);
-    letter-spacing: var(--ls-0);
     font-weight: 700;
 }
 
 .body-md-regular {
-    font-family: var(--ff-karla);
     font-size: var(--fs-18);
     line-height: var(--lh-150-18);
-    letter-spacing: var(--ls-0);
     font-weight: 400;
 }
 
 .body-sm {
-    font-family: var(--ff-karla);
     font-size: var(--fs-16);
     line-height: var(--lh-150-16);
-    letter-spacing: var(--ls-0);
     font-weight: 400;
 }
 
 .container {
     margin: auto;
-    max-width: 327px
+    padding-inline: 16px;
 }
 
 @media (min-width: 36em) {
 
-    .container {
-        max-width: 412px;
-        border-radius: 30px;
-    }
+    .container {}
 }
 
 /* =============================================== */
 /* Components */
+
+/* Submit button */
+
+.submit-btn {
+    background-color: rgb(var(--clr-green-600));
+    color: rgb(var(--clr-white));
+    padding-block: 16px;
+    border-radius: 8px;
+    font-size: var(--fs-18);
+    line-height: var(--lh-150-18);
+    font-weight: 700;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    ), rgb(var(--clr-green-600));
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sr-only {
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+.form-text-group label {
+    display: flex;
+    gap: 8px;
+}
+.form-text-group input {
+    border: 1px solid rgb(var(--clr-grey-500));
+    border-radius: 8px;
+    height: 27px;
+}
+
+.form-text-group input:hover {
+    border: 1px solid rgb(var(--clr-green-600));
+}
+
+.form-text-group input:focus {
+    border: none;
+    outline: 1px solid rgb(var(--clr-green-600));
+}
+
+.form-text-group input.error {
+    border: 1px solid rgb(var(--clr-error));
+    outline: none;
+}
+
+.required {
+    color: rgb(var(--clr-green-600));
+}
+
+.error-message {
+    display: none;
+}
+
